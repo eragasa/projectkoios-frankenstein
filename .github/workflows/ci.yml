@@ -22,10 +22,10 @@ jobs:
 
     steps:
       - name: Check out Project Koios Frankenstein
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Check out bound PyFlamestk source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: eragasa/pyflamestk
           ref: 5b8368cc88d91bc56f9cc1c8a7fa8d9ea3d6b359
@@ -33,7 +33,7 @@ jobs:
           persist-credentials: false
 
       - name: Check out bound PyPosPack source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: eragasa/pypospack
           ref: 21cdecaf3b05c87acc532d992be2c04d85bfbc22
@@ -41,7 +41,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python 3.14
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.14"
           cache: pip
