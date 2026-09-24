@@ -33,7 +33,7 @@ or inspect pymatmc2 until a bounded Frankenstein engine is extracted.
 ```bash
 .venv/bin/python -m pytest -q
 .venv/bin/python -m ruff check .
-.venv/bin/python -m ruff format --check src/projectkoios/frankensteins tests
+.venv/bin/python -m ruff format --check src/projectkoios/frankensteins tests tools
 MYPYPATH=src .venv/bin/python -m mypy --strict src/projectkoios/frankensteins
 empty_tree="$(git hash-object -t tree /dev/null)"
 git diff --check "$empty_tree" HEAD
