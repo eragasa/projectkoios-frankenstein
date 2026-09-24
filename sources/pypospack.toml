@@ -1,0 +1,12 @@
+schema_version = 1
+component = "pypospack"
+repository = "https://github.com/eragasa/pypospack"
+revision = "21cdecaf3b05c87acc532d992be2c04d85bfbc22"
+tree = "a5a4cee972e487512275c34f308251e6cc38c2fa"
+license_path = "LICENSE"
+license_sha256 = "05f25c4caf59b20bbcadbb1e3e1c33b154d273ef7daa7e7740bca8a0ed0f4c83"
+
+[selection]
+source_path = "pypospack/io/lammps.py"
+source_sha256 = "28f54c2ce369feb5e8ba228d13edde6595c77fc9ab3bbbb31e452087a5dd8607"
+source_byte_size = 3030

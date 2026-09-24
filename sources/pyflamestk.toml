@@ -1,0 +1,11 @@
+schema_version = 1
+component = "pyflamestk"
+repository = "https://github.com/eragasa/pyflamestk"
+revision = "5b8368cc88d91bc56f9cc1c8a7fa8d9ea3d6b359"
+tree = "02e20f61a9b554ed0dcbda15bb24adc21e942007"
+license_path = "LICENSE"
+license_sha256 = "8e8ff7b5f5de2f4f1b48a18108d6268769739d622cfb671078565ab56bef28aa"
+
+[selection]
+example_root = "examples/lmps_MgO_serial_uniform"
+identity_table = "src/projectkoios/frankensteins/engines/pyflamestk_lmps_mgo_serial_uniform/constants.py"

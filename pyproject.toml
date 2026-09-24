@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "projectkoios-frankenstein"
+version = "0.1.0.dev0"
+description = "Provenance-bound reconstructions of external scientific workflows"
+requires-python = ">=3.14"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/eragasa/projectkoios-frankenstein"
+Documentation = "https://github.com/eragasa/projectkoios-frankenstein/tree/main/docs"
+
+[project.optional-dependencies]
+development = [
+    "build>=1.3,<2",
+    "mypy>=2.3,<3",
+    "pytest>=9.1,<10",
+    "ruff>=0.16,<1",
+]
+
+[project.scripts]
+koios-frankenstein = "projectkoios.frankensteins.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["projectkoios", "projectkoios.frankensteins*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+files = ["src/projectkoios/frankensteins"]
+mypy_path = "src"

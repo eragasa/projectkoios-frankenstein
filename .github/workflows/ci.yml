@@ -1,0 +1,101 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Python 3.14 verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+      PYTHONUTF8: "1"
+      PIP_DISABLE_PIP_VERSION_CHECK: "1"
+      PYFLAMESTK_CHECKOUT: ${{ github.workspace }}/.upstreams/pyflamestk
+      PYPOSPACK_CHECKOUT: ${{ github.workspace }}/.upstreams/pypospack
+
+    steps:
+      - name: Check out Project Koios Frankenstein
+        uses: actions/checkout@v4
+
+      - name: Check out bound PyFlamestk source
+        uses: actions/checkout@v4
+        with:
+          repository: eragasa/pyflamestk
+          ref: 5b8368cc88d91bc56f9cc1c8a7fa8d9ea3d6b359
+          path: .upstreams/pyflamestk
+          persist-credentials: false
+
+      - name: Check out bound PyPosPack source
+        uses: actions/checkout@v4
+        with:
+          repository: eragasa/pypospack
+          ref: 21cdecaf3b05c87acc532d992be2c04d85bfbc22
+          path: .upstreams/pypospack
+          persist-credentials: false
+
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install the package and development tools
+        run: python -m pip install --upgrade --editable ".[development]"
+
+      - name: Run tests
+        run: python -m pytest -q
+
+      - name: Lint maintained code and tests
+        run: python -m ruff check .
+
+      - name: Check maintained-code formatting
+        run: >-
+          python -m ruff format --check
+          src/projectkoios/frankensteins
+          tests
+
+      - name: Run strict type checking
+        run: python -m mypy --config-file pyproject.toml
+
+      - name: Check tracked whitespace
+        run: |
+          empty_tree="$(git hash-object -t tree /dev/null)"
+          git diff --check "$empty_tree" HEAD
+
+      - name: Build the wheel
+        run: python -m build --wheel
+
+      - name: Verify the isolated wheel boundary
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sys
+          import zipfile
+
+          wheels = tuple(Path("dist").glob("*.whl"))
+          if len(wheels) != 1:
+              raise SystemExit(f"expected one wheel, found {len(wheels)}")
+          wheel = wheels[0].resolve()
+          with zipfile.ZipFile(wheel) as archive:
+              names = tuple(archive.namelist())
+          forbidden = ("projectkoios/frankensteins/integration/",)
+          for prefix in forbidden:
+              if any(name.startswith(prefix) for name in names):
+                  raise SystemExit(f"wheel contains forbidden path: {prefix}")
+
+          sys.path.insert(0, str(wheel))
+          from projectkoios.frankensteins.integrations.lammps import (  # noqa: E402
+              LammpsAtom,
+          )
+
+          assert LammpsAtom("Mg", (0.0, 0.0, 0.0)).symbol == "Mg"
+          print(f"verified {wheel.name}")
+          PY
