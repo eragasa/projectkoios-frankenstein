@@ -36,7 +36,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           repository: eragasa/pypospack
-          ref: 21cdecaf3b05c87acc532d992be2c04d85bfbc22
+          ref: be453fa7191e55a0426f66e8b5b5b0b103c8b29d
           path: .upstreams/pypospack
           persist-credentials: false
 

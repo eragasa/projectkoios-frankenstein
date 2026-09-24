@@ -10,6 +10,7 @@ from projectkoios.frankensteins.engines.pyflamestk_lmps_mgo_serial_uniform impor
 from projectkoios.frankensteins.integrations.lammps.provenance import (
     PYPOSPACK_LICENSE_PATH,
     PYPOSPACK_LICENSE_SHA256,
+    PYPOSPACK_RELEASE_TAG,
     PYPOSPACK_REPOSITORY_URL,
     PYPOSPACK_REVISION,
     PYPOSPACK_TREE,
@@ -37,6 +38,7 @@ class SourceReferencesTest(unittest.TestCase):
             (REPOSITORY_ROOT / "sources/pypospack.toml").read_text(encoding="utf-8")
         )
         self.assertEqual(reference["repository"], PYPOSPACK_REPOSITORY_URL)
+        self.assertEqual(reference["release_tag"], PYPOSPACK_RELEASE_TAG)
         self.assertEqual(reference["revision"], PYPOSPACK_REVISION)
         self.assertEqual(reference["tree"], PYPOSPACK_TREE)
         self.assertEqual(reference["license_path"], PYPOSPACK_LICENSE_PATH)

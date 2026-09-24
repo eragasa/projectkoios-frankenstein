@@ -9,8 +9,8 @@ references are declared under [`sources/`](sources/):
 
 - [PyFlamestk](https://github.com/eragasa/pyflamestk) at
   `5b8368cc88d91bc56f9cc1c8a7fa8d9ea3d6b359`
-- [PyPosPack](https://github.com/eragasa/pypospack) at
-  `21cdecaf3b05c87acc532d992be2c04d85bfbc22`
+- [PyPosPack](https://github.com/eragasa/pypospack) release `v0.1.0` at
+  `be453fa7191e55a0426f66e8b5b5b0b103c8b29d`
 - [pymatmc2](https://github.com/eragasa/pymatmc2) at
   `9d31d7fd4f8902f17864fbf391059101a3f5afda` as a reference-only pin
 

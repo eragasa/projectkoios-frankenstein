@@ -19,7 +19,7 @@ explicit environment variables:
 git clone https://github.com/eragasa/pyflamestk .upstreams/pyflamestk
 git -C .upstreams/pyflamestk checkout 5b8368cc88d91bc56f9cc1c8a7fa8d9ea3d6b359
 git clone https://github.com/eragasa/pypospack .upstreams/pypospack
-git -C .upstreams/pypospack checkout 21cdecaf3b05c87acc532d992be2c04d85bfbc22
+git -C .upstreams/pypospack checkout be453fa7191e55a0426f66e8b5b5b0b103c8b29d
 export PYFLAMESTK_CHECKOUT="$PWD/.upstreams/pyflamestk"
 export PYPOSPACK_CHECKOUT="$PWD/.upstreams/pypospack"
 ```

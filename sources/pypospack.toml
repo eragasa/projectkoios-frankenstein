@@ -1,8 +1,9 @@
 schema_version = 1
 component = "pypospack"
 repository = "https://github.com/eragasa/pypospack"
-revision = "21cdecaf3b05c87acc532d992be2c04d85bfbc22"
-tree = "a5a4cee972e487512275c34f308251e6cc38c2fa"
+release_tag = "v0.1.0"
+revision = "be453fa7191e55a0426f66e8b5b5b0b103c8b29d"
+tree = "7ac9c9f255aa7731f39ce35a0e561fc113082a6f"
 license_path = "LICENSE"
 license_sha256 = "05f25c4caf59b20bbcadbb1e3e1c33b154d273ef7daa7e7740bca8a0ed0f4c83"
 

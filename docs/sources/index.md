@@ -10,7 +10,7 @@ directory.
 | Component | Repository | Branch containing the pin | Commit | Git tree | Role |
 |---|---|---|---|---|---|
 | PyFlamestk | [`eragasa/pyflamestk`](https://github.com/eragasa/pyflamestk) | `master` | `5b8368cc88d91bc56f9cc1c8a7fa8d9ea3d6b359` | `02e20f61a9b554ed0dcbda15bb24adc21e942007` | Current MgO workflow reconstruction |
-| PyPosPack | [`eragasa/pypospack`](https://github.com/eragasa/pypospack) | `master` | `21cdecaf3b05c87acc532d992be2c04d85bfbc22` | `a5a4cee972e487512275c34f308251e6cc38c2fa` | Current LAMMPS reconstruction |
+| PyPosPack | [`eragasa/pypospack`](https://github.com/eragasa/pypospack) | `master`, `release/v0.1.0`, tag `v0.1.0` | `be453fa7191e55a0426f66e8b5b5b0b103c8b29d` | `7ac9c9f255aa7731f39ce35a0e561fc113082a6f` | Current LAMMPS reconstruction |
 | pymatmc2 | [`eragasa/pymatmc2`](https://github.com/eragasa/pymatmc2) | `master` | `9d31d7fd4f8902f17864fbf391059101a3f5afda` | `7773f886eaecfe919abf68d9e4f990fb398a82be` | Reference-only; no Frankenstein engine yet |
 
 A branch name is context, not immutable provenance. Commits, Git trees, selected
@@ -18,8 +18,11 @@ file hashes, byte sizes, and license hashes establish the maintained identity.
 
 ## Release status
 
-- PyFlamestk exposes `master` and currently has no release branch or tag.
-- PyPosPack exposes `master` and currently has no release branch or tag.
+- PyFlamestk publishes alpha release `v0.1.0`; its Frankenstein pin remains at
+  the earlier source object pending separate contract revalidation.
+- PyPosPack publishes alpha release `v0.1.0` and exposes
+  `release/v0.1.0`. The tag, release branch, and `master` resolve to the exact
+  commit pinned here.
 - pymatmc2 exposes `master` and `develop`; tag `v0.1` identifies its current
   source baseline.
 
@@ -28,10 +31,11 @@ branch is never used as a substitute for an exact source pin.
 
 ## Planned pin updates
 
-The PyFlamestk and PyPosPack pins require future owner-repository updates. The
-corresponding code contains explicit `TODO` comments. Advancing either pin must
-be a deliberate revalidation, not an automatic branch-head update. A pin change
-must update and verify, as applicable:
+The PyPosPack pin was advanced to its v0.1.0 release only after complete
+selected-contract revalidation. The PyFlamestk pin still requires a future
+owner-repository update. Advancing either pin again must be a deliberate
+revalidation, not an automatic branch-head update. A pin change must update and
+verify, as applicable:
 
 1. repository URL, exact commit, and Git tree;
 2. selected source paths, SHA-256 digests, and byte sizes;

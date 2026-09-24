@@ -7,10 +7,10 @@ from pathlib import Path
 from projectkoios.frankensteins.evidence import read_bounded_regular_file
 
 PYPOSPACK_COMPONENT = "pypospack"
-# TODO: Update the PyPosPack pin only after revalidating its selected contracts.
 PYPOSPACK_REPOSITORY_URL = "https://github.com/eragasa/pypospack"
-PYPOSPACK_REVISION = "21cdecaf3b05c87acc532d992be2c04d85bfbc22"
-PYPOSPACK_TREE = "a5a4cee972e487512275c34f308251e6cc38c2fa"
+PYPOSPACK_RELEASE_TAG = "v0.1.0"
+PYPOSPACK_REVISION = "be453fa7191e55a0426f66e8b5b5b0b103c8b29d"
+PYPOSPACK_TREE = "7ac9c9f255aa7731f39ce35a0e561fc113082a6f"
 PYPOSPACK_LAMMPS_PATH = "pypospack/io/lammps.py"
 PYPOSPACK_LAMMPS_SHA256 = (
     "28f54c2ce369feb5e8ba228d13edde6595c77fc9ab3bbbb31e452087a5dd8607"
@@ -35,6 +35,7 @@ _MAX_SOURCE_BYTES = 1_000_000
 class PypospackLammpsProvenance:
     component: str
     repository_url: str
+    release_tag: str
     revision: str
     tree: str
     source_path: str
@@ -49,6 +50,8 @@ class PypospackLammpsProvenance:
             raise ValueError("LAMMPS provenance component is invalid")
         if self.repository_url != PYPOSPACK_REPOSITORY_URL:
             raise ValueError("LAMMPS provenance repository is invalid")
+        if self.release_tag != PYPOSPACK_RELEASE_TAG:
+            raise ValueError("LAMMPS provenance release tag is invalid")
         if self.revision != PYPOSPACK_REVISION or self.tree != PYPOSPACK_TREE:
             raise ValueError("LAMMPS provenance Git identity is invalid")
         if self.source_path != PYPOSPACK_LAMMPS_PATH:
@@ -68,6 +71,7 @@ class PypospackLammpsProvenance:
         return {
             "component": self.component,
             "repository_url": self.repository_url,
+            "release_tag": self.release_tag,
             "revision": self.revision,
             "tree": self.tree,
             "source_path": self.source_path,
@@ -108,6 +112,7 @@ def verify_pypospack_lammps_checkout(
     return PypospackLammpsProvenance(
         component=PYPOSPACK_COMPONENT,
         repository_url=PYPOSPACK_REPOSITORY_URL,
+        release_tag=PYPOSPACK_RELEASE_TAG,
         revision=PYPOSPACK_REVISION,
         tree=PYPOSPACK_TREE,
         source_path=PYPOSPACK_LAMMPS_PATH,

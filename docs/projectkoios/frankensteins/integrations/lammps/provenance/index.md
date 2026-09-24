@@ -7,8 +7,9 @@ PyPosPack source.
 
 ## Constants
 
-- `PYPOSPACK_COMPONENT`, `PYPOSPACK_REPOSITORY_URL`, `PYPOSPACK_REVISION`, and
-  `PYPOSPACK_TREE` identify the upstream Git object.
+- `PYPOSPACK_COMPONENT`, `PYPOSPACK_REPOSITORY_URL`,
+  `PYPOSPACK_RELEASE_TAG`, `PYPOSPACK_REVISION`, and `PYPOSPACK_TREE` identify
+  the upstream release and exact Git object.
 - `PYPOSPACK_LAMMPS_PATH`, `PYPOSPACK_LAMMPS_SHA256`, and
   `PYPOSPACK_LAMMPS_BYTE_SIZE` identify the selected source file.
 - `PYPOSPACK_LICENSE_PATH` and `PYPOSPACK_LICENSE_SHA256` identify its license.

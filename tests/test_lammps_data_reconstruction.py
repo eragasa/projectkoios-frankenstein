@@ -13,6 +13,7 @@ from projectkoios.frankensteins.integrations.lammps import (
     PYPOSPACK_LAMMPS_PATH,
     PYPOSPACK_LAMMPS_SHA256,
     PYPOSPACK_LICENSE_SHA256,
+    PYPOSPACK_RELEASE_TAG,
     PYPOSPACK_REPOSITORY_URL,
     PYPOSPACK_REVISION,
     PYPOSPACK_TREE,
@@ -34,6 +35,7 @@ def bound_source() -> PypospackLammpsProvenance:
     return PypospackLammpsProvenance(
         component="pypospack",
         repository_url=PYPOSPACK_REPOSITORY_URL,
+        release_tag=PYPOSPACK_RELEASE_TAG,
         revision=PYPOSPACK_REVISION,
         tree=PYPOSPACK_TREE,
         source_path=PYPOSPACK_LAMMPS_PATH,
@@ -63,9 +65,11 @@ class LammpsDataReconstructionTest(unittest.TestCase):
 
     def test_provenance_contract_is_exact_and_immutable(self) -> None:
         self.assertEqual(self.source.component, "pypospack")
+        self.assertEqual(self.source.release_tag, "v0.1.0")
         self.assertEqual(self.source.revision, PYPOSPACK_REVISION)
         self.assertEqual(self.source.source_path, PYPOSPACK_LAMMPS_PATH)
         self.assertEqual(self.source.source_byte_size, 3_030)
+        self.assertEqual(self.source.to_dict()["release_tag"], "v0.1.0")
         self.assertTrue(self.source.source_limitations)
 
         with self.assertRaisesRegex(ValueError, "source size"):
