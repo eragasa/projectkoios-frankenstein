@@ -1,0 +1,10 @@
+schema_version = 1
+component = "pymatmc2"
+repository = "https://github.com/eragasa/pymatmc2"
+revision = "9d31d7fd4f8902f17864fbf391059101a3f5afda"
+tree = "7773f886eaecfe919abf68d9e4f990fb398a82be"
+license_path = "LICENSE"
+license_sha256 = "2080cab2d2ec5b2a17322121dd1b8ce00d44da7bdfe3e6e01d45316971ca65bd"
+
+[selection]
+status = "reference-only"

@@ -14,8 +14,10 @@ No source reference authorizes calculator, scheduler, shell, or arbitrary Python
 execution. Reconstruction does not imply numerical verification or scientific
 validation.
 
-## Development and security
+## Sources, development, and security
 
+- [`sources/index.md`](sources/index.md) records exact external pins, current
+  release status, local-checkout conventions, and pin-update requirements.
 - [`development/index.md`](development/index.md) defines setup, verification,
   external-checkout variables, documentation maintenance, and CI.
 - [`security/index.md`](security/index.md) defines trust boundaries, defensive

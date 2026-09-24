@@ -98,7 +98,7 @@ class DocumentationLayoutTest(unittest.TestCase):
 
     def test_internal_documentation_links_resolve(self) -> None:
         pages = tuple(sorted(DOCUMENTATION_ROOT.rglob("*.md")))
-        self.assertEqual(len(pages), 42)
+        self.assertEqual(len(pages), 43)
         for page in pages:
             text = page.read_text(encoding="utf-8")
             for raw_target in _MARKDOWN_LINK.findall(text):

@@ -42,11 +42,31 @@ class SourceReferencesTest(unittest.TestCase):
         self.assertEqual(reference["license_path"], PYPOSPACK_LICENSE_PATH)
         self.assertEqual(reference["license_sha256"], PYPOSPACK_LICENSE_SHA256)
 
+    def test_pymatmc2_reference_is_pinned_without_an_engine_claim(self) -> None:
+        reference = tomllib.loads(
+            (REPOSITORY_ROOT / "sources/pymatmc2.toml").read_text(encoding="utf-8")
+        )
+        self.assertEqual(reference["repository"], "https://github.com/eragasa/pymatmc2")
+        self.assertEqual(
+            reference["revision"],
+            "9d31d7fd4f8902f17864fbf391059101a3f5afda",
+        )
+        self.assertEqual(
+            reference["tree"],
+            "7773f886eaecfe919abf68d9e4f990fb398a82be",
+        )
+        self.assertEqual(reference["license_path"], "LICENSE")
+        self.assertEqual(
+            reference["license_sha256"],
+            "2080cab2d2ec5b2a17322121dd1b8ce00d44da7bdfe3e6e01d45316971ca65bd",
+        )
+        self.assertEqual(reference["selection"]["status"], "reference-only")
+
     def test_source_references_are_metadata_only(self) -> None:
         source_entries = tuple(sorted(REPOSITORY_ROOT.joinpath("sources").iterdir()))
         self.assertEqual(
             tuple(path.name for path in source_entries),
-            ("pyflamestk.toml", "pypospack.toml"),
+            ("pyflamestk.toml", "pymatmc2.toml", "pypospack.toml"),
         )
         self.assertTrue(all(path.is_file() for path in source_entries))
 

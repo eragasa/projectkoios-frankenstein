@@ -25,6 +25,8 @@ export PYPOSPACK_CHECKOUT="$PWD/.upstreams/pypospack"
 ```
 
 `.upstreams/` is ignored. Package code never performs these Git operations.
+The pymatmc2 declaration is currently reference-only, so CI does not check out
+or inspect pymatmc2 until a bounded Frankenstein engine is extracted.
 
 ## Verification
 

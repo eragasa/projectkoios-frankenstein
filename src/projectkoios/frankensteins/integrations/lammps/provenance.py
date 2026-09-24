@@ -7,6 +7,7 @@ from pathlib import Path
 from projectkoios.frankensteins.evidence import read_bounded_regular_file
 
 PYPOSPACK_COMPONENT = "pypospack"
+# TODO: Update the PyPosPack pin only after revalidating its selected contracts.
 PYPOSPACK_REPOSITORY_URL = "https://github.com/eragasa/pypospack"
 PYPOSPACK_REVISION = "21cdecaf3b05c87acc532d992be2c04d85bfbc22"
 PYPOSPACK_TREE = "a5a4cee972e487512275c34f308251e6cc38c2fa"

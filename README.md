@@ -11,6 +11,13 @@ references are declared under [`sources/`](sources/):
   `5b8368cc88d91bc56f9cc1c8a7fa8d9ea3d6b359`
 - [PyPosPack](https://github.com/eragasa/pypospack) at
   `21cdecaf3b05c87acc532d992be2c04d85bfbc22`
+- [pymatmc2](https://github.com/eragasa/pymatmc2) at
+  `9d31d7fd4f8902f17864fbf391059101a3f5afda` as a reference-only pin
+
+PyFlamestk and PyPosPack currently support maintained reconstructions. pymatmc2
+is pinned for provenance only and has no Frankenstein engine yet. See the
+[external-source reference policy](docs/sources/index.md) for release status and
+pin-update requirements.
 
 Callers provide explicit local checkouts when verifying or reconstructing those
 sources. Package code never discovers, downloads, imports, or executes upstream

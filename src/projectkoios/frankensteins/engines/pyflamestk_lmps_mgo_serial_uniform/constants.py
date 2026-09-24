@@ -1,4 +1,5 @@
 SOURCE_COMPONENT = "pyflamestk"
+# TODO: Update the PyFlamestk pin only after revalidating every selected identity.
 SOURCE_REPOSITORY_URL = "https://github.com/eragasa/pyflamestk"
 SOURCE_REVISION = "5b8368cc88d91bc56f9cc1c8a7fa8d9ea3d6b359"
 SOURCE_TREE = "02e20f61a9b554ed0dcbda15bb24adc21e942007"
