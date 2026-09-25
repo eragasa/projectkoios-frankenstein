@@ -5,6 +5,7 @@ than loosely related function parameters and mutable result dictionaries.
 
 - [Lightweight tool base classes](base.md)
 - [Python literal source inspection](source-literal-inspection.md)
+- [Markdown normalization](normalize-markdown.md)
 - [Staged-snapshot verification](staged-snapshot-verification.md)
 - [`revalidate_source_reference.py`](revalidate-source-reference.md)
 - [`vendor_source_selection.py`](vendor-source-selection.md)

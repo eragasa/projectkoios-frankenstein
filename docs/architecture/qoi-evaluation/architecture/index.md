@@ -1,26 +1,35 @@
 # QOI evaluation architecture
 
-A quantity of interest selects a material property to predict and compare with
-a reference target. The problem is to express which evidence makes that property
-calculable while retaining units, structure roles, source artifacts, and failure
-information.
+A quantity of interest identifies a material property, required structure roles,
+simulation evidence, units, conventions, and the calculation that produces a
+normalized observation. It does not contain a reference value or objective
+loss.
 
 ```mermaid
-flowchart LR
-    Q[Material-property QOI token] --> C[CPN dependency state]
-    R[Simulation-result tokens] --> C
-    C -->|property transition enabled| P[Physical calculation]
-    P --> O[Material-property observation token]
-    O --> X[Separately declared loss transform]
+flowchart TD
+    Q[Shared QOI definition] --> CR[Candidate simulation requirements]
+    Q --> RR[Reference simulation requirements]
+    CR --> L[LAMMPS candidate evidence]
+    RR --> V[VASP DFT reference evidence]
+    L --> PC[Property calculation]
+    V --> PR[Property calculation]
+    PC --> CO[Predicted QOI observation]
+    PR --> RO[Reference QOI observation]
+    CO --> X[External objective transform]
+    RO --> X
 ```
 
-Evaluation owns the relationship between named structure roles, simulation
-outputs, and a physical formula. The scientific adapter expresses that
-relationship as CPN places, colors, transitions, and inscriptions. Evaluation
-does not own target selection, Pareto filtering, sampling, calculator invocation,
-or CPN firing semantics.
+Candidate and reference paths reuse QOI identity, structure-role semantics,
+units, conventions, normalized observation types, and material-property
+formulas when scientifically compatible. Their simulation plans and provenance
+remain backend-specific.
 
-Observations must be identifiable independently of targets. Missing or invalid
-inputs produce explicit failures rather than fabricated numeric penalties.
-Units and conventions are part of the observation definition and cannot be
-inferred from a field name alone.
+Reference observations are generated and qualified outside the optimization
+loop from a declared high-fidelity source. Candidate observations are generated
+inside the loop from the current interatomic potential. The results handler,
+not the QOI evaluator, aligns these observations and derives losses.
+
+Observations must be identifiable independently of sources and objective
+transforms. Missing or invalid inputs produce explicit failures rather than
+fabricated numeric penalties. Units and conventions cannot be inferred from a
+field name alone.

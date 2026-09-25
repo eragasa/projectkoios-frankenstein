@@ -32,18 +32,23 @@ def _local_representation_files(component: str) -> set[Path]:
     if component != "pypospack":
         return set()
     component_root = Path("examples") / component
-    manifest_path = EXAMPLES_ROOT / component / "MgO/buck/PROVENANCE.json"
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    result = {Path("MgO/buck/PROVENANCE.json")}
-    for collection, field in (
-        ("files", "vendored_path"),
-        ("derived_files", "vendored_path"),
-        ("maintained_files", "path"),
+    result: set[Path] = set()
+    for relative_manifest in (
+        Path("MgO/buck/PROVENANCE.json"),
+        Path("Si/vasp/struct_min/PROVENANCE.json"),
     ):
-        result.update(
-            Path(record[field]).relative_to(component_root)
-            for record in manifest[collection]
-        )
+        manifest_path = EXAMPLES_ROOT / component / relative_manifest
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        result.add(relative_manifest)
+        for collection, field in (
+            ("files", "vendored_path"),
+            ("derived_files", "vendored_path"),
+            ("maintained_files", "path"),
+        ):
+            result.update(
+                Path(record[field]).relative_to(component_root)
+                for record in manifest.get(collection, [])
+            )
     return result
 
 
@@ -220,6 +225,24 @@ class VendoredExampleCodeTest(unittest.TestCase):
                 self.assertEqual(len(data), record["byte_size"])
                 self.assertEqual(hashlib.sha256(data).hexdigest(), record["sha256"])
                 self.assertIn("Locally authored", record["origin"])
+
+    def test_si_vasp_fixture_matches_its_recorded_identities(self) -> None:
+        manifest_path = EXAMPLES_ROOT / "pypospack/Si/vasp/struct_min/PROVENANCE.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(manifest["component"], "operator_provided_si_vasp_example")
+        self.assertEqual(len(manifest["files"]), 6)
+        self.assertEqual(len(manifest["external_artifacts"]), 1)
+        self.assertFalse(manifest["external_artifacts"][0]["committed"])
+        for collection, path_field in (
+            ("files", "vendored_path"),
+            ("maintained_files", "path"),
+        ):
+            for record in manifest[collection]:
+                with self.subTest(path=record[path_field]):
+                    data = REPOSITORY_ROOT.joinpath(record[path_field]).read_bytes()
+                    self.assertEqual(len(data), record["byte_size"])
+                    self.assertEqual(hashlib.sha256(data).hexdigest(), record["sha256"])
 
 
 if __name__ == "__main__":

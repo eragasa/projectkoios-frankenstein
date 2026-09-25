@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "calculation": "silicon_vasp_structural_minimization",
+  "execution_status": 0,
+  "calculator": {
+    "name": "VASP",
+    "version": "5.3.5 31Mar14",
+    "build": "Sep 24 2026 23:55:22",
+    "executable_sha256": "ebe4117fef93d0752d2fc2c4ae0159d4a8cbd24aec58fc7305f58871cbab2b86"
+  },
+  "execution": {
+    "process_count": 1,
+    "omp_num_threads": 1,
+    "elapsed_seconds_reported_by_vasp": 11.051,
+    "cpu_seconds_reported_by_vasp": 10.816,
+    "maximum_resident_set_size_bytes": 46022656
+  },
+  "outcome": {
+    "structural_minimization_converged": true,
+    "final_total_energy_ev": -43.39136659,
+    "final_lattice_angstrom": [
+      5.4676676776069675,
+      5.4676676776069675,
+      5.4676676776069675
+    ],
+    "atom_count": 8,
+    "species": ["Si"]
+  },
+  "omitted_native_outputs": {
+    "OUTCAR_sha256": "26f055fe13524339c0ce2086ef4b1200437f736e34736dc16a469932508ce58c",
+    "OSZICAR_sha256": "87cac434f5ad82b805d92d110a25b6c7bfe71b4cf7bfcbb3eb4d46095e03a120",
+    "vasprun_xml_sha256": "8170ee549fb745d05d5d99ce89258a4e548cc4785b99dff73ee55ed2721d5dbe",
+    "stdout_sha256": "d6110371e933662c0d75c8aa8e959f7e575e5a9165007eac3537a9c1407eede3",
+    "stderr_sha256": "3ab6c89fa0b30b433fd8116c56284642dc27607527e81d0df4e9303197cbc9f7"
+  },
+  "claim_limit": "Execution and finite-input reproduction only; not convergence or scientific validation."
+}

@@ -38,7 +38,8 @@ flowchart LR
 ```
 
 `PotentialOptimization` owns scientific inputs, parameter resolution,
-constraints, structures, material-property QOIs, observations, and objective
+constraints, structures, material-property QOI definitions, independently
+qualified reference QOI observations, predicted observations, and objective
 transforms.
 `MultiObjectiveOptimizer` owns candidate proposal, iterative sampling, selection,
 random state, and optimizer checkpoints. `projectkoios-cpn` owns CPN semantics,
@@ -72,10 +73,10 @@ calculator interaction.
 Rejected because it makes optimizer mechanics authoritative for scientific
 semantics and preserves filesystem and MPI coupling.
 
-### Put target comparison inside each QOI evaluator
+### Put reference comparison inside each QOI evaluator
 
-Rejected because physical observations would be lost or conflated with a
-particular loss definition.
+Rejected because predicted and high-fidelity reference observations would be
+lost or conflated with a particular loss definition.
 
 ### Put LAMMPS execution inside `PotentialOptimization`
 

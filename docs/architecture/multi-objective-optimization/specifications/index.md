@@ -14,6 +14,15 @@ stateDiagram-v2
 - `ask` **MUST NOT** mutate scientific problem data.
 - `tell` **MUST** reject unknown, duplicate, or incompatible evaluations.
 - Objective ordering and minimization direction **MUST** be explicit and stable.
+- The Ragasa-method implementation **MUST** retain the complete QOI-error vector
+  and **MUST NOT** replace Pareto dominance with an undeclared weighted scalar
+  objective.
+- Initial uniform sampling **MUST** give each independent free parameter its own
+  bounded uniform-distribution parameters.
+- KDE refinement **MUST** identify the Pareto population and bandwidth policy
+  from which the next proposal distribution is constructed.
+- Preference-dependent final down-selection **MUST** remain distinct from Pareto
+  ensemble construction.
 - Random state, algorithm state, iteration index, and accepted evaluation
   identities **MUST** be checkpointed atomically.
 - Failed evaluations **MUST** retain candidate identity and failure class.

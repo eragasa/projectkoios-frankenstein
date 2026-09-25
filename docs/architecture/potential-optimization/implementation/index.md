@@ -1,42 +1,51 @@
 # Potential optimization implementation
 
-**Proposed package:** `projectkoios.frankensteins.potential_optimization`
+**Incubation package:** `projectkoios.frankensteins.potential_optimization`
 
 ```mermaid
 classDiagram
-    class MultiObjectiveProblem {
-        <<protocol>>
-        +validate(candidate)
-        +workflow_state(candidate)
-        +observe(marking)
-        +objectives(observations)
-    }
     class PotentialOptimization
-    class PotentialModel
+    class InteratomicPotential
+    class InteratomicPotentialParameters
     class ParameterSpace
-    class StructureDatabase
+    class StructureSet
     class QuantityOfInterestSet
-    class MaterialPropertyTarget
+    class ReferenceQoiSet
     class ObjectiveTransform
-    MultiObjectiveProblem <|.. PotentialOptimization
-    PotentialOptimization *-- PotentialModel
+    class ForwardFunctionExecutionEngine
+    class PotentialFunctionalEvaluation
+    class PotentialResultsHandler
     PotentialOptimization *-- ParameterSpace
-    PotentialOptimization *-- StructureDatabase
+    PotentialOptimization *-- StructureSet
     PotentialOptimization *-- QuantityOfInterestSet
-    QuantityOfInterestSet *-- MaterialPropertyTarget
+    PotentialOptimization *-- ReferenceQoiSet
     PotentialOptimization *-- ObjectiveTransform
+    InteratomicPotential *-- InteratomicPotentialParameters
+    ForwardFunctionExecutionEngine --> InteratomicPotential
+    ForwardFunctionExecutionEngine --> StructureSet
+    ForwardFunctionExecutionEngine --> QuantityOfInterestSet
+    ForwardFunctionExecutionEngine --> PotentialFunctionalEvaluation
+    PotentialResultsHandler --> PotentialFunctionalEvaluation
+    PotentialResultsHandler --> ReferenceQoiSet
+    PotentialResultsHandler --> ObjectiveTransform
 ```
 
 ```mermaid
 flowchart LR
-    potential_optimization --> optimization_protocols
-    potential_optimization --> potential_models
-    potential_optimization --> qoi_models
-    potential_optimization --> cpn_workflow_adapter
-    historical_configuration_adapter --> potential_optimization
+    optimization_engine --> parameter_space
+    parameter_space --> resolved_potential
+    resolved_potential --> forward_function_execution_engine
+    structures --> forward_function_execution_engine
+    qoi_definitions --> forward_function_execution_engine
+    forward_function_execution_engine --> raw_observations
+    predicted_qoi_observations --> potential_results_handler
+    precomputed_reference_qois --> potential_results_handler
+    potential_results_handler --> optimization_engine
 ```
 
-`PotentialCandidate` contains independent and fully resolved parameters.
-`PotentialEvaluation` retains CPN definition and marking identities, simulation
-result references, material-property observations, objective losses, and an
-optional classified failure.
+`InteratomicPotentialParameters` contains one complete immutable candidate after
+independent, fixed, and dependent values have been resolved.
+`PotentialFunctionalEvaluation` retains simulation-plan and workflow identities,
+calculator evidence, raw material-property observations, and an optional
+classified failure. `PotentialResultsHandler` derives objective feedback without
+discarding that evaluation evidence.

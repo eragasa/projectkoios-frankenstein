@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "component": "pypospack",
+  "repository": "https://github.com/eragasa/pypospack",
+  "revision": "be453fa7191e55a0426f66e8b5b5b0b103c8b29d",
+  "tree": "7ac9c9f255aa7731f39ce35a0e561fc113082a6f",
+  "release_tag": "v0.1.0",
+  "license_path": "LICENSE",
+  "license_sha256": "05f25c4caf59b20bbcadbb1e3e1c33b154d273ef7daa7e7740bca8a0ed0f4c83",
+  "source_example": "pypospack/io/vasp",
+  "representation": "vendor/pypospack/pypospack",
+  "files": [
+    {
+      "role": "license",
+      "original_path": "LICENSE",
+      "vendored_path": "vendor/pypospack/LICENSE",
+      "git_mode": "100644",
+      "git_blob_oid": "3e371f1091181c6dc30dbe89146e9f0616771819",
+      "sha256": "05f25c4caf59b20bbcadbb1e3e1c33b154d273ef7daa7e7740bca8a0ed0f4c83",
+      "byte_size": 4550,
+      "local_modifications": "None"
+    },
+    {
+      "role": "vasp_io",
+      "original_path": "pypospack/io/vasp/__init__.py",
+      "vendored_path": "vendor/pypospack/pypospack/io/vasp/__init__.py",
+      "git_mode": "100644",
+      "git_blob_oid": "ed94f9f0047d55f9b0fe646888837a3ad268d4e4",
+      "sha256": "125c8ac3ddd402dae197903ce4f33bcfbcc7d587186d0b694700458e6c1b2c0e",
+      "byte_size": 43581,
+      "local_modifications": "None"
+    },
+    {
+      "role": "vasp_simulation",
+      "original_path": "pypospack/io/vasp/simulation.py",
+      "vendored_path": "vendor/pypospack/pypospack/io/vasp/simulation.py",
+      "git_mode": "100644",
+      "git_blob_oid": "09b7ebdfbbf6a0c4ef44efc6a1c75bc61374ccb3",
+      "sha256": "420062a314d7dead96a1b6c0eebf1ff0b5fe6f1c5f7559bcf4c0ff7327a5cd26",
+      "byte_size": 2667,
+      "local_modifications": "None"
+    },
+    {
+      "role": "vasp_task",
+      "original_path": "pypospack/task/vasp.py",
+      "vendored_path": "vendor/pypospack/pypospack/task/vasp.py",
+      "git_mode": "100644",
+      "git_blob_oid": "502cf5dc903b1491a8471630e4d7a94b02d921fa",
+      "sha256": "3dbcb3b5d8bc13e834a2580654afdb1bdd26f589b9241374cc5a3663660378db",
+      "byte_size": 42492,
+      "local_modifications": "None"
+    },
+    {
+      "role": "vasp_workflow",
+      "original_path": "pypospack/workflows/vasp/kpoint_convergence.py",
+      "vendored_path": "vendor/pypospack/pypospack/workflows/vasp/kpoint_convergence.py",
+      "git_mode": "100644",
+      "git_blob_oid": "9ede60f21b011e954be61fb474ee315db6707bb1",
+      "sha256": "c54fe010b774b778542a1fd400bef7a26e86f079d56b5661cd6edbc9a75168b9",
+      "byte_size": 786,
+      "local_modifications": "None"
+    }
+  ],
+  "derived_files": [],
+  "maintained_files": [
+    {
+      "role": "documentation",
+      "path": "vendor/pypospack/README.md",
+      "sha256": "c1bd92b0ce4bb3325c360dc85be30d32c8572235829071c5ecbd72432d35d1fd",
+      "byte_size": 679,
+      "origin": "Locally authored; not an upstream file."
+    },
+    {
+      "role": "vendoring_recipe",
+      "path": "vendor/pypospack/VENDORING.toml",
+      "sha256": "23ac15159cbd83a5cc235fc7bc85fb04d5ae66981e5e38fd76ff353919a883e2",
+      "byte_size": 1124,
+      "origin": "Locally authored; not an upstream file."
+    }
+  ]
+}

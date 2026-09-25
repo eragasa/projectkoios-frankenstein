@@ -22,6 +22,8 @@ validation.
   decisions separately from implemented behavior.
 - [`plans/index.md`](plans/index.md) records bounded implementation sequences and
   acceptance gates without claiming completion.
+- [`references/index.md`](references/index.md) records scientific publications
+  that explain method intent without replacing exact source provenance.
 - [`sources/index.md`](sources/index.md) records exact external pins, current
   release status, local-checkout conventions, and pin-update requirements.
 - [`development/index.md`](development/index.md) defines setup, verification,

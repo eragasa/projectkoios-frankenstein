@@ -1,8 +1,11 @@
 .DS_Store
+.obsidian/
 __pycache__/
 *.py[cod]
 .venv/
+storage/pseudopotentials/
 .upstreams/
+workspace/
 build/
 dist/
 *.egg-info/

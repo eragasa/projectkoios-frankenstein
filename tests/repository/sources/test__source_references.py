@@ -3,9 +3,6 @@ from __future__ import annotations
 import tomllib
 import unittest
 
-from projectkoios.frankensteins.engines.pyflamestk_lmps_mgo_serial_uniform import (
-    constants as pyflamestk,
-)
 from projectkoios.frankensteins.integrations.lammps.provenance import (
     PYPOSPACK_LICENSE_PATH,
     PYPOSPACK_LICENSE_SHA256,
@@ -13,6 +10,10 @@ from projectkoios.frankensteins.integrations.lammps.provenance import (
     PYPOSPACK_REPOSITORY_URL,
     PYPOSPACK_REVISION,
     PYPOSPACK_TREE,
+)
+
+from projectkoios.frankensteins.engines.pyflamestk_lmps_mgo_serial_uniform import (
+    constants as pyflamestk,
 )
 from tests.support.repository_root import REPOSITORY_ROOT
 

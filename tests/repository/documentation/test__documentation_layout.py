@@ -11,15 +11,19 @@ SOURCE_ROOT = REPOSITORY_ROOT / "src/projectkoios"
 DOCUMENTATION_ROOT = REPOSITORY_ROOT / "docs"
 _MARKDOWN_LINK = re.compile(r"(?<!!)\[[^]]+\]\(([^)]+)\)")
 ARCHITECTURE_MODULES = (
+    "adapters",
     "cpn-composition",
     "cpn-visualization",
     "cpn-workflow",
     "historical-pypospack",
+    "inverse-problem-forward-evaluation",
     "multi-objective-optimization",
     "potential-optimization",
     "pyflamestk-mgo-examples",
     "qoi-evaluation",
+    "reduced-hamiltonian-inverse-problem",
     "simulation-execution",
+    "validation",
 )
 
 

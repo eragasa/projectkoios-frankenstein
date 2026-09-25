@@ -1,8 +1,10 @@
 # Project Koios Frankenstein
 
-This repository owns provenance-bound, execution-disabled reconstructions of
-externally hosted scientific workflows. It does not vendor, import, execute,
-discover, clone, or download upstream source repositories at package runtime.
+This repository owns provenance-bound reconstructions of externally hosted
+scientific workflows. It may vendor selected source files or subtrees from only
+the three upstream repositories pinned by `sources/pyflamestk.toml`,
+`sources/pypospack.toml`, and `sources/pymatmc2.toml`. It must not discover,
+clone, or download upstream repositories at package runtime.
 
 ## Adapter and incubation architecture
 
@@ -27,10 +29,22 @@ discover, clone, or download upstream source repositories at package runtime.
 
 ## Source boundaries
 
-- Use only operator-provided local checkouts for source inspection and
-  conformance validation.
-- Read committed Git objects; do not execute upstream Python, shell scripts,
-  calculators, schedulers, or simulation engines.
+- Use only operator-provided local checkouts for source inspection,
+  conformance validation, and vendoring.
+- Vendor only from the exact revision and tree declared in the corresponding
+  `sources/*.toml` file. Read and copy committed Git objects rather than an
+  uncommitted working tree.
+- Do not execute Python, shell scripts, calculators, schedulers, or simulation
+  engines directly from an upstream checkout. Code deliberately vendored into
+  the maintained package may be adapted, imported, and executed as project code
+  after review and testing.
+- Preserve all applicable upstream copyright, license, and attribution notices.
+  Record the component, repository, pinned revision, original path, and Git blob
+  identity (or a cryptographic file hash) for every vendored file. Clearly
+  document local modifications; never imply they were made upstream.
+- Vendor only the files needed by the maintained implementation. Do not copy
+  `.git` data, caches, build outputs, binaries, source archives, credentials, or
+  unrelated upstream material.
 - Exact commits, trees, selected-file hashes and sizes, and license hashes are
   provenance. Branch names and local checkout paths are not.
 - Keep candidate reports outside the tracked repository. Reports are
@@ -69,8 +83,9 @@ A pin update must still deliberately update and validate all applicable items:
 
 1. `sources/<component>.toml` repository, release tag, commit, tree, selected
    identities, and license identity;
-2. implementation-bound provenance constants and source spans;
-3. reconstruction and adversarial tests;
+2. implementation-bound provenance constants, vendored-file identities,
+   source spans, attribution notices, and documented local modifications;
+3. reconstruction and adversarial tests, including tests for vendored code;
 4. CI checkout revisions;
 5. README and source documentation;
 6. full conformance tests against the exact candidate commit; and
@@ -78,6 +93,17 @@ A pin update must still deliberately update and validate all applicable items:
 
 Stop rather than weakening an identity check when a selected file, license,
 source span, repository origin, or Git object cannot be verified.
+
+## Test layout
+
+- Mirror maintained package paths under `tests/projectkoios/frankensteins/`.
+- Give each implementation module its own directory and name test files for the
+  narrowest public type or function under test, for example
+  `reconstruction/test__reconstruct_checkout.py`.
+- Keep repository-policy tests under `tests/repository/` and development-tool
+  tests under `tests/tools/<tool_name>/`.
+- Do not return to a flat `tests/test_*.py` layout or combine unrelated module
+  ownership in a new catch-all test file.
 
 ## Development verification
 
@@ -93,6 +119,7 @@ git diff --check "$empty_tree" HEAD
 .venv/bin/python -m build --wheel
 ```
 
-The wheel must contain maintained reconstruction code only. It must not contain
-upstream checkouts, source archives, revalidation reports, download helpers,
-calculator executables, or duplicated legacy integration namespaces.
+The wheel may contain maintained reconstruction code and reviewed source code
+vendored from the three pinned repositories. It must not contain complete
+upstream checkouts, `.git` data, source archives, revalidation reports, download
+helpers, calculator executables, or duplicated legacy integration namespaces.

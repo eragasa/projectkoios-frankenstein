@@ -60,6 +60,21 @@ git diff --check "$empty_tree" HEAD
 .venv/bin/python -m build --wheel
 ```
 
+## Opt-in validation tests
+
+The default Pytest configuration excludes tests marked `validation`. These are
+longer-running numerical or statistical checks and remain distinct from unit
+and reconstruction-conformance tests. Run them explicitly with:
+
+```bash
+.venv/bin/python -m pytest -q -m validation
+```
+
+The probability validation suite uses a large deterministic sample to check
+support, expected moments, and histogram occupancy. Passing it validates the
+implemented sampling distribution for that fixture; it does not establish
+scientific validation of a complete materials workflow.
+
 ## Distribution boundary
 
 The wheel contains maintained `projectkoios.frankensteins` modules. It contains

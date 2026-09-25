@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "component": "operator_provided_si_vasp_example",
+  "origin": "Operator-provided historical calculation; the local source path is not durable provenance.",
+  "files": [
+    {
+      "role": "input",
+      "source_name": "struct_min/INCAR",
+      "vendored_path": "examples/pypospack/Si/vasp/struct_min/input/INCAR",
+      "sha256": "e1fcf6bdfe849b16fda1faac332c3736ad327ff5c679731355404f66d5eacc07",
+      "byte_size": 1751,
+      "local_modifications": "None"
+    },
+    {
+      "role": "input",
+      "source_name": "struct_min/POSCAR",
+      "vendored_path": "examples/pypospack/Si/vasp/struct_min/input/POSCAR",
+      "sha256": "780945a144a18ed78e83e1373da45161268ac64c366bdbcc7ab5ac2ee6862050",
+      "byte_size": 341,
+      "local_modifications": "None"
+    },
+    {
+      "role": "input",
+      "source_name": "struct_min/KPOINTS",
+      "vendored_path": "examples/pypospack/Si/vasp/struct_min/input/KPOINTS",
+      "sha256": "ff70d03d64880f6228566bbcde2a63860b90db8c12f8da71b486461791ed124f",
+      "byte_size": 59,
+      "local_modifications": "None"
+    },
+    {
+      "role": "historical_execution_script",
+      "source_name": "struct_min/runjob_si.pbs",
+      "vendored_path": "examples/pypospack/Si/vasp/struct_min/historical/runjob_si.pbs",
+      "sha256": "5e369c67d19e2eddd9bdaeb5012a94dd6fea29692a6415d244283c2e52004807",
+      "byte_size": 407,
+      "local_modifications": "None"
+    },
+    {
+      "role": "historical_readme",
+      "source_name": "struct_min/README",
+      "vendored_path": "examples/pypospack/Si/vasp/struct_min/historical/README",
+      "sha256": "c6170570811298ac57e0ec5a673b76b77da314b5203929ec39bc98278d77316e",
+      "byte_size": 110,
+      "local_modifications": "None"
+    },
+    {
+      "role": "reproduced_final_structure",
+      "vendored_path": "examples/pypospack/Si/vasp/struct_min/expected/CONTCAR",
+      "sha256": "7bd704eac226f8c603e14fd00100480b2f00d6f37fba5946f8a7f2f54fd99ad5",
+      "byte_size": 1173,
+      "local_modifications": "None"
+    }
+  ],
+  "external_artifacts": [
+    {
+      "role": "pseudopotential",
+      "name": "POTCAR",
+      "sha256": "79d9987ad8750f624c4d6acb2a16d13abf6a777132adc04dc6c8399be72b42bb",
+      "byte_size": 195673,
+      "metadata": "PAW_PBE Si 05Jan2001; LEXCH=PE; ENMAX=245.345 eV",
+      "committed": false
+    }
+  ],
+  "maintained_files": [
+    {
+      "role": "documentation",
+      "path": "examples/pypospack/Si/vasp/struct_min/README.md",
+      "sha256": "96ac5a6e241f41c3eeb29f9d85672f923b957053794b758f7ac75f027869fada",
+      "byte_size": 1236,
+      "origin": "Locally authored; not part of the operator-provided calculation."
+    },
+    {
+      "role": "compact_result",
+      "path": "examples/pypospack/Si/vasp/struct_min/expected/result.json",
+      "sha256": "414f21a84cfef9001be7fa245919678e8bcc1afeb9cd073374eac9344e4f0b53",
+      "byte_size": 1386,
+      "origin": "Locally authored from the isolated reproduction run."
+    }
+  ]
+}

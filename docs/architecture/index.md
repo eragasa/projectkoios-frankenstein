@@ -50,6 +50,9 @@ Every module follows the
 architecture, implementation, specifications, and testing.
 
 - [Adapters, bindings, and integrations](adapters/index.md)
+- [Validation framework](validation/index.md)
+- [Inverse problems through forward evaluation](inverse-problem-forward-evaluation/index.md)
+- [Reduced-Hamiltonian inverse problem](reduced-hamiltonian-inverse-problem/index.md)
 - [Multi-objective optimization](multi-objective-optimization/index.md)
 - [Potential optimization](potential-optimization/index.md)
 - [QOI evaluation](qoi-evaluation/index.md)
@@ -77,6 +80,12 @@ architecture, implementation, specifications, and testing.
 - [Decision 0005](decisions/0005-adapters-contain-bindings-and-integrations.md)
   defines bindings and integrations as distinct adapter roles and establishes
   mirrored pick-and-pull namespaces.
+- [Decision 0006](decisions/0006-solve-potential-fitting-as-forward-evaluated-inverse-problem.md)
+  defines the optimizer, forward evaluator, and results-handler feedback loop
+  reconstructed from interatomic-potential fitting.
+- [Decision 0007](decisions/0007-adapt-the-feedback-loop-to-reduced-hamiltonians.md)
+  adapts that loop to the `ksdft2effmass` bulk-silicon spectral/operator
+  compatibility problem.
 
 ## Status vocabulary
 

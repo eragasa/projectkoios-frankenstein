@@ -5,38 +5,49 @@
 ```mermaid
 classDiagram
     class MaterialPropertyDefinition
-    class MaterialPropertyTarget
     class MaterialPropertyObservation
-    class QuantityOfInterest
+    class QuantityOfInterestDefinition
     class MaterialPropertyEvaluator {
-        <<protocol>>
+        <<abstract>>
         +evaluate(results) MaterialPropertyObservation
     }
+    class ReferenceQoiSet
+    class PredictedQoiSet
+    class QoiObservationSource
     class ObjectiveDefinition
     class ObjectiveTransform {
-        <<protocol>>
-        +transform(observation, target) float
+        <<abstract>>
+        +transform(predicted, reference) float
     }
-    QuantityOfInterest *-- MaterialPropertyDefinition
-    QuantityOfInterest *-- MaterialPropertyTarget
+    QuantityOfInterestDefinition *-- MaterialPropertyDefinition
     MaterialPropertyDefinition --> MaterialPropertyEvaluator
     MaterialPropertyEvaluator --> MaterialPropertyObservation
+    ReferenceQoiSet *-- MaterialPropertyObservation
+    PredictedQoiSet *-- MaterialPropertyObservation
+    MaterialPropertyObservation --> QoiObservationSource
     ObjectiveDefinition --> ObjectiveTransform
     ObjectiveTransform --> MaterialPropertyObservation
-    ObjectiveTransform --> MaterialPropertyTarget
 ```
 
 ```mermaid
 flowchart LR
-    material_properties --> simulation_result_models
-    potential_optimization --> material_properties
-    potential_optimization_cpn_adapter --> material_properties
-    potential_optimization_cpn_adapter --> projectkoios_cpn
-    historical_qoi_adapter --> material_properties
-    historical_qoi_adapter --> vendored_pypospack_qoi
+    qoi_definitions --> lammps_simulation_planner
+    qoi_definitions --> vasp_simulation_planner
+    lammps_simulation_results --> material_property_evaluators
+    vasp_simulation_results --> material_property_evaluators
+    material_property_evaluators --> predicted_qoi_set
+    material_property_evaluators --> reference_qoi_set
+    predicted_qoi_set --> results_handler
+    reference_qoi_set --> results_handler
 ```
 
+The same maintained property evaluator may consume normalized primitive results
+from either backend when the scientific formula is genuinely shared. Backend
+adapters remain responsible for parsing and normalizing calculator-specific
+artifacts. Every observation retains its source model, backend, structure, task,
+artifact, units, and QOI identities.
+
 The CPN adapter maps QOI requirements and observations to tokens and transitions.
-The historical adapter translates PyPosPack task dictionaries and QOI values.
-Maintained material-property models do not import either vendored modules or CPN
-implementation details.
+Historical adapters translate PyPosPack task dictionaries and QOI values.
+Maintained material-property models do not import vendored modules, calculator
+integrations, or CPN implementation details.

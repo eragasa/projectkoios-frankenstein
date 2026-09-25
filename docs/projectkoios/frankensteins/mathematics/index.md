@@ -2,20 +2,14 @@
 
 **Source:** `src/projectkoios/frankensteins/mathematics/`
 
-This package defines immutable contracts for mathematical models extracted from
-verified upstream source evidence.
+This package incubates immutable mathematical definitions extracted from
+verified source evidence. Implementations are imported from their defining
+modules rather than broadly re-exported by a package facade.
 
-## Package facade
-
-The package re-exports all public contracts implemented in
-[`models`](models/index.md):
-
-- `MathematicalModelKind`
-- `MathematicalModelSourceSpan`
-- `MathematicalModelInput`
-- `MathematicalModelDefinition`
-- `ExternalMathematicalModelDeclaration`
-- `MathematicalModelCatalog`
+- [`models`](models/index.md) records reconstructed mathematical-model evidence.
+- [`probability`](probability/index.md) defines probability distributions and
+  parameterized sampler contracts.
 
 Only enumerated, closed arithmetic is locally evaluable. Calculator-backed
-models remain explicit, evaluation-disabled declarations.
+models remain explicit, evaluation-disabled declarations. Numerical sampling is
+provided through external dependency bindings.

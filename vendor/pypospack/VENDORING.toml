@@ -1,0 +1,42 @@
+schema_version = 1
+component = "pypospack"
+
+[provenance]
+path = "vendor/pypospack/PROVENANCE.json"
+source_example = "pypospack/io/vasp"
+representation = "vendor/pypospack/pypospack"
+
+[[files]]
+role = "license"
+source = "LICENSE"
+destination = "vendor/pypospack/LICENSE"
+
+[[files]]
+role = "vasp_io"
+source = "pypospack/io/vasp/__init__.py"
+destination = "vendor/pypospack/pypospack/io/vasp/__init__.py"
+
+[[files]]
+role = "vasp_simulation"
+source = "pypospack/io/vasp/simulation.py"
+destination = "vendor/pypospack/pypospack/io/vasp/simulation.py"
+
+[[files]]
+role = "vasp_task"
+source = "pypospack/task/vasp.py"
+destination = "vendor/pypospack/pypospack/task/vasp.py"
+
+[[files]]
+role = "vasp_workflow"
+source = "pypospack/workflows/vasp/kpoint_convergence.py"
+destination = "vendor/pypospack/pypospack/workflows/vasp/kpoint_convergence.py"
+
+[[maintained_files]]
+role = "documentation"
+destination = "vendor/pypospack/README.md"
+origin = "Locally authored; not an upstream file."
+
+[[maintained_files]]
+role = "vendoring_recipe"
+destination = "vendor/pypospack/VENDORING.toml"
+origin = "Locally authored; not an upstream file."

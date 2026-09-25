@@ -90,17 +90,47 @@ resolved parameters:
 - three `Mg-O` pair parameters; and
 - three `O-O` pair parameters.
 
-The optimizer independently samples selected parameters. Other parameters are
-fixed or derived, including the oxygen charge derived from the magnesium
-charge.
+Magnesium charge and oxygen charge are separate parameters. For stoichiometric,
+neutral MgO their formal constraint is
+
+```text
+1 × Mg.charge + 1 × O.charge = 0
+```
+
+A material system can contain many named structures. Each structure uses the
+imported PhysKit `DirectLattice3D` and `ReciprocalLattice3D` types rather than
+reconstructing lattice geometry. With a structure's lattice and unit-cell
+composition declared, its intended charge statement is concise:
+
+```python
+MgO.structure("bulk").unit_cell.charge = 0
+```
+
+This assignment declares a target total charge for the unit-cell scope. The
+maintained compiler obtains species multiplicities from the unit cell, groups
+sites by their charge-parameter identities, and creates the corresponding
+linear equality. For a unit cell with equal magnesium and oxygen
+multiplicities, normalization produces:
+
+```text
+1 × Mg.charge + 1 × O.charge = 0
+```
+
+The historical parameterization samples `chrg_Mg` as one free coordinate and
+uses `chrg_O = -chrg_Mg` as the solved form of that constraint. The solved form
+must not replace the two parameter identities or the stoichiometric neutrality
+constraint in the maintained model.
 
 ```mermaid
 flowchart LR
-    I[chrg_Mg and sampled pair parameters] --> C[Constraint validation]
-    C --> D[Derived chrg_O = -chrg_Mg]
-    F[Fixed pair parameters] --> R[Resolved Buckingham candidate]
-    D --> R
-    C --> R
+    D[MgO.structure bulk unit_cell charge = 0] --> S[Inspect unit-cell species multiplicities]
+    S --> C[Compile stoichiometric charge constraint]
+    M[Sampled Mg.charge] --> V[Resolve one unknown from the constraint]
+    O[O.charge parameter] --> V
+    C --> V
+    P[Sampled pair parameters] --> R[Resolved Buckingham candidate]
+    F[Fixed pair parameters] --> R
+    V --> R
 ```
 
 The problem uses five structures and ten QOI targets covering lattice geometry,

@@ -2,16 +2,20 @@
 
 **Status:** Target module
 
-This module defines the scientific problem of fitting a potential against
-structure-derived quantities of interest. It does not own search or calculator
-process policy.
+This module specializes the
+[inverse-problem forward-evaluation architecture](../inverse-problem-forward-evaluation/index.md)
+for fitting an immutable interatomic potential against high-fidelity,
+structure-derived reference quantities of interest. It owns scientific problem
+meaning but not optimizer
+search policy or calculator process authority.
 
 ```mermaid
 flowchart LR
     P[Potential parameters] --> E[Scientific evaluation]
-    S[Structures and targets] --> E
-    E --> Q[QOI observations]
-    Q --> O[Objective vector]
+    S[Structures and QOI definitions] --> E
+    E --> Q[Predicted QOI observations]
+    R[Precomputed reference QOIs] --> O[Objective vector]
+    Q --> O
 ```
 
 - [Architecture](architecture/index.md)

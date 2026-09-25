@@ -8,6 +8,7 @@ protected command intent.
 ## Classes
 
 - [`LammpsCommandIntent`](LammpsCommandIntent/index.md)
+- [`LammpsDataStructureObservation`](LammpsDataStructureObservation/index.md)
 - [`LammpsTemplateObservation`](LammpsTemplateObservation/index.md)
 - [`LammpsIntegrationObservation`](LammpsIntegrationObservation/index.md)
 

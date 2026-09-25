@@ -23,6 +23,10 @@ class RuntimeDependenciesTest(unittest.TestCase):
                 "mpi4py>=4.1,<5",
                 "numpy>=2.3,<3",
                 (
+                    "physkit @ git+https://github.com/eragasa/physkit.git@"
+                    "6a6d41e7d64d8a8dbcda9fec7f9e3f2c0f624de5"
+                ),
+                (
                     f"pypospack[all] @ git+{source['repository']}.git@"
                     f"{source['revision']}"
                 ),

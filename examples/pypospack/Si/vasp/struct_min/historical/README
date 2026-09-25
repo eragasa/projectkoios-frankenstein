@@ -1,0 +1,2 @@
+GGA_POTCAR_FILES = /share/apps/vasp/POTENTIALS/GGA-PBE
+LDA_POTCAR_FILES = /share/apps/vasp/POTENTIALS/GGA-LDA

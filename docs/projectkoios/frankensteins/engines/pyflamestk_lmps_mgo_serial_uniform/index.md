@@ -2,17 +2,18 @@
 
 **Source:** `src/projectkoios/frankensteins/engines/pyflamestk_lmps_mgo_serial_uniform/`
 
-This package reconstructs one exact externally hosted PyFlamestk MgO example.
-Its facade exports `ENGINE_NAME`, `EXAMPLE_ROOT`, `SOURCE_REPOSITORY_URL`,
-`SOURCE_REVISION`, `SOURCE_TREE`, `reconstruct_checkout`, and
-`reconstruct_mathematical_models`.
+This package incubates maintained components reconstructed from the exact
+PyFlamestk MgO serial-uniform example. Implementations are imported from their
+defining modules rather than broadly re-exported by a package facade.
 
 - [`constants`](constants/index.md) owns external source identity.
-- [`reconstruction`](reconstruction/index.md) verifies an explicit checkout and
-  composes the recipe.
-- [`mathematical_models`](mathematical_models/index.md) owns closed arithmetic
-  reconstruction.
+- [`charge_distribution`](charge_distribution/index.md) constructs the exact
+  historical magnesium-charge distribution.
+- [`reconstruction`](reconstruction/index.md) documents checkout-backed
+  reconstruction evidence.
+- [`mathematical_models`](mathematical_models/index.md) documents reconstructed
+  closed arithmetic.
 
-The package never fetches, imports, or executes the referenced repository. Its
-`FrankensteinRecipe` and mathematical-model catalog are the initial maintained
-inputs to the [PyFlamestk MgO worked-example architecture](../../../../architecture/pyflamestk-mgo-examples/index.md).
+The package does not import or execute upstream PyFlamestk modules or scripts.
+A runnable optimization feedback-loop engine remains the next composition
+boundary.

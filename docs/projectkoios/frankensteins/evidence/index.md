@@ -6,6 +6,15 @@ This module owns bounded filesystem reads for maintained reconstructions. It
 pins a trusted evidence root with a directory descriptor, opens every descendant
 relative to that descriptor, and refuses symbolic-link traversal.
 
+## `directory_git_tree_sha1`
+
+`directory_git_tree_sha1(root, relative_directory, *, maximum_files,
+maximum_file_bytes, label)` reproduces the Git tree identity for a bounded tree
+of regular files. It uses the same no-follow inventory and reads, preserves Git
+regular versus executable file modes, recursively constructs canonical Git blob
+and tree objects, and returns the resulting SHA-1 object name. SHA-1 is used only
+for exact Git-object identity comparison, not as a new security claim.
+
 ## `read_bounded_regular_file`
 
 `read_bounded_regular_file(root, relative_path, *, maximum_bytes, label)` reads
@@ -26,9 +35,8 @@ sorted POSIX-style paths relative to the selected directory. Traversal rejects
 symbolic links, special files, count overflow, and directory metadata changes
 during inspection.
 
-Callers that need a stable tree inventory compare listings before and after
-reading its files. Callers separately validate cryptographic hashes; safe reads
-do not replace provenance verification.
+Callers separately validate declared source identities; safe reads do not
+replace provenance verification.
 
 ## Limits
 

@@ -1,0 +1,127 @@
+from __future__ import annotations
+
+import unittest
+
+import numpy as np
+from physkit.periodic import DirectLattice3D
+from physkit.units import PhysicalUnit, ScalarQuantity, Unitless, VectorQuantity
+
+from projectkoios.frankensteins.integrations.quantumespresso.input import (
+    QePwInputFileAssembler,
+)
+from projectkoios.frankensteins.io.quantumespresso.input import PwInputGroup
+from projectkoios.frankensteins.physkit.periodic.unit_cell import (
+    Atom,
+    AtomicBasis,
+    UnitCell,
+)
+from projectkoios.frankensteins.simulations.dft.base import PwDftSimulation
+from projectkoios.frankensteins.simulations.dft.settings import (
+    CalculationType,
+    PwDftSettings,
+)
+
+
+class QePwInputFileAssemblerTest(unittest.TestCase):
+    def test_generates_structure_cards_from_the_shared_unit_cell(self) -> None:
+        simulation = _simulation()
+
+        input_file = QePwInputFileAssembler().assemble(
+            simulation,
+            groups=(
+                PwInputGroup(
+                    kind="namelist",
+                    tag="&SYSTEM",
+                    lines=("ibrav = 0", "nat = 1", "ntyp = 1"),
+                ),
+                PwInputGroup(
+                    kind="card",
+                    tag="K_POINTS gamma",
+                    lines=(),
+                ),
+            ),
+            cell_parameters_unit="angstrom",
+            atomic_positions_unit="crystal",
+            coordinate_precision=16,
+            card_order=(
+                "ATOMIC_SPECIES",
+                "ATOMIC_POSITIONS",
+                "K_POINTS",
+                "CELL_PARAMETERS",
+            ),
+        )
+
+        self.assertIs(input_file.unit_cell, simulation.unit_cell)
+        cards = {
+            group.tag.split(maxsplit=1)[0]: group
+            for group in input_file.groups
+            if group.kind == "card"
+        }
+        self.assertEqual(
+            cards["ATOMIC_POSITIONS"].lines,
+            ("Si 0.0000000000000000 0.0000000000000000 0.0000000000000000",),
+        )
+        self.assertEqual(
+            cards["ATOMIC_POSITIONS"].tag,
+            "ATOMIC_POSITIONS (crystal)",
+        )
+        self.assertEqual(
+            cards["CELL_PARAMETERS"].tag,
+            "CELL_PARAMETERS (angstrom)",
+        )
+        self.assertEqual(
+            cards["CELL_PARAMETERS"].lines,
+            (
+                "5.4299999999999997 0.0000000000000000 0.0000000000000000",
+                "0.0000000000000000 5.4299999999999997 0.0000000000000000",
+                "0.0000000000000000 0.0000000000000000 5.4299999999999997",
+            ),
+        )
+
+    def test_rejects_caller_supplied_structure_cards(self) -> None:
+        with self.assertRaisesRegex(ValueError, "must not duplicate"):
+            QePwInputFileAssembler().assemble(
+                _simulation(),
+                groups=(
+                    PwInputGroup(
+                        kind="card",
+                        tag="ATOMIC_POSITIONS crystal",
+                        lines=("Si 0 0 0",),
+                    ),
+                ),
+                cell_parameters_unit="angstrom",
+                atomic_positions_unit="crystal",
+                coordinate_precision=16,
+                card_order=(
+                    "ATOMIC_SPECIES",
+                    "ATOMIC_POSITIONS",
+                    "K_POINTS",
+                    "CELL_PARAMETERS",
+                ),
+            )
+
+
+def _simulation() -> PwDftSimulation:
+    return PwDftSimulation(
+        unit_cell=UnitCell(
+            primitive_lattice=DirectLattice3D(
+                a1=np.array([1.0, 0.0, 0.0]),
+                a2=np.array([0.0, 1.0, 0.0]),
+                a3=np.array([0.0, 0.0, 1.0]),
+            ),
+            lattice_parameter=ScalarQuantity(5.43, PhysicalUnit("angstrom")),
+            atomic_basis=AtomicBasis(
+                atoms=(
+                    Atom(
+                        symbol="Si",
+                        position_fractional=VectorQuantity(np.zeros(3), Unitless()),
+                    ),
+                )
+            ),
+        ),
+        settings=PwDftSettings(calculation_type=CalculationType.scf),
+    )
+
+
+if __name__ == "__main__":
+    unittest.main()

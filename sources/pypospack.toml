@@ -18,6 +18,31 @@ sha256 = "f8e020b864475e219ad84a13b0eb52a72641ba3e92bb1263b92ba859b0f83830"
 byte_size = 30410
 
 [[selection.additional_files]]
+path = "LICENSE"
+sha256 = "05f25c4caf59b20bbcadbb1e3e1c33b154d273ef7daa7e7740bca8a0ed0f4c83"
+byte_size = 4550
+
+[[selection.additional_files]]
+path = "pypospack/io/vasp/__init__.py"
+sha256 = "125c8ac3ddd402dae197903ce4f33bcfbcc7d587186d0b694700458e6c1b2c0e"
+byte_size = 43581
+
+[[selection.additional_files]]
+path = "pypospack/io/vasp/simulation.py"
+sha256 = "420062a314d7dead96a1b6c0eebf1ff0b5fe6f1c5f7559bcf4c0ff7327a5cd26"
+byte_size = 2667
+
+[[selection.additional_files]]
+path = "pypospack/task/vasp.py"
+sha256 = "3dbcb3b5d8bc13e834a2580654afdb1bdd26f589b9241374cc5a3663660378db"
+byte_size = 42492
+
+[[selection.additional_files]]
+path = "pypospack/workflows/vasp/kpoint_convergence.py"
+sha256 = "c54fe010b774b778542a1fd400bef7a26e86f079d56b5661cd6edbc9a75168b9"
+byte_size = 786
+
+[[selection.additional_files]]
 path = "pypospack/pyposmat/engines/mc_sampler_iterate.py"
 sha256 = "bdaaca875f52e82fa17e440dd30a3e7dd5db8df56db2698f4f263bf723838c6e"
 byte_size = 43357
