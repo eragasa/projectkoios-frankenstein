@@ -6,10 +6,19 @@ import subprocess
 import tempfile
 import textwrap
 import unittest
+from dataclasses import replace
 from pathlib import Path
 
 from tests.support.repository_root import REPOSITORY_ROOT
-from tools.revalidate_source_reference import build_report
+from tools.base import DataObjectActionizer
+from tools.sources.revalidation import (
+    RevalidationDisposition,
+    RevalidationError,
+    SourceReferenceRevalidationReportSerializer,
+    SourceReferenceRevalidationRequest,
+    SourceReferenceRevalidationResponse,
+    SourceReferenceRevalidator,
+)
 
 
 def _git(repository: Path, *arguments: str) -> str:
@@ -23,7 +32,15 @@ def _git(repository: Path, *arguments: str) -> str:
 
 
 class SourceRevalidationToolTest(unittest.TestCase):
-    def test_build_report_matches_a_declared_identity(self) -> None:
+    def test_request_rejects_a_component_path(self) -> None:
+        with self.assertRaisesRegex(RevalidationError, "file-name stem"):
+            SourceReferenceRevalidationRequest(
+                repository_root=REPOSITORY_ROOT,
+                component="../outside",
+                checkout=REPOSITORY_ROOT,
+            )
+
+    def test_actionizes_and_serializes_a_declared_identity(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             repository_root = root / "frankenstein"
@@ -81,44 +98,59 @@ class SourceRevalidationToolTest(unittest.TestCase):
                 encoding="utf-8",
             )
 
-            report = build_report(repository_root, "demo", checkout)
-
-            self.assertTrue(report["matches_declaration"])
-            self.assertEqual(report["disposition"], "declared_identity_matches")
-            self.assertFalse(report["pin_change_authorized"])
-            self.assertEqual(
-                report["example_trees"],
-                [
-                    {
-                        "path": "example",
-                        "declared": example_tree,
-                        "observed": example_tree,
-                        "matches": True,
-                    }
-                ],
+            request = SourceReferenceRevalidationRequest(
+                repository_root=repository_root,
+                component="demo",
+                checkout=checkout,
             )
+            actionizer: DataObjectActionizer[
+                SourceReferenceRevalidationRequest,
+                SourceReferenceRevalidationResponse,
+            ] = SourceReferenceRevalidator()
+            response = actionizer.actionize(request)
+            report_model = SourceReferenceRevalidationReportSerializer().serialize(
+                response
+            )
+
+            self.assertIs(response.request, request)
+            self.assertEqual(
+                response.disposition,
+                RevalidationDisposition.DECLARED_IDENTITY_MATCHES,
+            )
+            with self.assertRaisesRegex(RevalidationError, "cannot authorize"):
+                replace(response, pin_change_authorized=True)
+            self.assertTrue(report_model.matches_declaration)
+            self.assertEqual(
+                report_model.disposition,
+                RevalidationDisposition.DECLARED_IDENTITY_MATCHES,
+            )
+            self.assertFalse(report_model.pin_change_authorized)
+            self.assertEqual(len(report_model.example_trees), 1)
+            self.assertEqual(report_model.example_trees[0].path, "example")
+            self.assertEqual(report_model.example_trees[0].declared, example_tree)
+            self.assertEqual(report_model.example_trees[0].observed, example_tree)
+            self.assertTrue(report_model.example_trees[0].matches)
 
             (checkout / "selected.txt").write_text("changed source\n", encoding="utf-8")
             _git(checkout, "add", "selected.txt")
             _git(checkout, "commit", "--quiet", "-m", "candidate")
             candidate_revision = _git(checkout, "rev-parse", "HEAD")
 
-            candidate = build_report(
-                repository_root,
-                "demo",
-                checkout,
+            candidate_request = SourceReferenceRevalidationRequest(
+                repository_root=repository_root,
+                component="demo",
+                checkout=checkout,
                 requested_revision=candidate_revision,
             )
+            candidate = SourceReferenceRevalidator().actionize(candidate_request)
 
-            self.assertFalse(candidate["matches_declaration"])
+            self.assertFalse(candidate.matches_declaration)
             self.assertEqual(
-                candidate["disposition"],
-                "candidate_identity_differs_not_accepted",
+                candidate.disposition,
+                RevalidationDisposition.CANDIDATE_IDENTITY_DIFFERS_NOT_ACCEPTED,
             )
-            self.assertFalse(
-                candidate["selected_files"][0]["matches_declared_identity"]
-            )
-            self.assertFalse(candidate["pin_change_authorized"])
+            self.assertFalse(candidate.selected_files[0].matches_declared_identity)
+            self.assertFalse(candidate.pin_change_authorized)
 
     def test_current_pypospack_declaration_revalidates(self) -> None:
         checkout_value = os.environ.get("PYPOSPACK_CHECKOUT")
@@ -130,12 +162,17 @@ class SourceRevalidationToolTest(unittest.TestCase):
         else:
             checkout = Path(checkout_value)
 
-        report = build_report(REPOSITORY_ROOT, "pypospack", checkout)
+        request = SourceReferenceRevalidationRequest(
+            repository_root=REPOSITORY_ROOT,
+            component="pypospack",
+            checkout=checkout,
+        )
+        result = SourceReferenceRevalidator().actionize(request)
 
-        self.assertTrue(report["matches_declaration"])
-        self.assertEqual(len(report["selected_files"]), 21)
-        self.assertEqual(len(report["example_trees"]), 31)
-        self.assertTrue(all(item["matches"] for item in report["example_trees"]))
+        self.assertTrue(result.matches_declaration)
+        self.assertEqual(len(result.selected_files), 21)
+        self.assertEqual(len(result.example_trees), 31)
+        self.assertTrue(all(item.matches for item in result.example_trees))
 
     def test_current_pyflamestk_declaration_revalidates(self) -> None:
         checkout_value = os.environ.get("PYFLAMESTK_CHECKOUT")
@@ -147,12 +184,17 @@ class SourceRevalidationToolTest(unittest.TestCase):
         else:
             checkout = Path(checkout_value)
 
-        report = build_report(REPOSITORY_ROOT, "pyflamestk", checkout)
+        request = SourceReferenceRevalidationRequest(
+            repository_root=REPOSITORY_ROOT,
+            component="pyflamestk",
+            checkout=checkout,
+        )
+        result = SourceReferenceRevalidator().actionize(request)
 
-        self.assertTrue(report["matches_declaration"])
-        self.assertEqual(len(report["selected_files"]), 32)
-        self.assertEqual(len(report["example_trees"]), 17)
-        self.assertTrue(all(item["matches"] for item in report["example_trees"]))
+        self.assertTrue(result.matches_declaration)
+        self.assertEqual(len(result.selected_files), 32)
+        self.assertEqual(len(result.example_trees), 17)
+        self.assertTrue(all(item.matches for item in result.example_trees))
 
 
 if __name__ == "__main__":

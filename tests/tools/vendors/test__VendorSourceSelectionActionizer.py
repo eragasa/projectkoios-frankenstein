@@ -1,37 +1,15 @@
 from __future__ import annotations
 
 import hashlib
-import importlib.util
 import json
 import subprocess
-import sys
 import tempfile
 import unittest
+from dataclasses import replace
 from pathlib import Path
-from types import ModuleType
 
-from tests.support.repository_root import REPOSITORY_ROOT
+from tools.vendors import source_selection as tool
 
-TOOL_PATH = REPOSITORY_ROOT / "tools/vendor_source_selection.py"
-
-
-def _load_tool() -> ModuleType:
-    module_name = "projectkoios_vendor_source_selection"
-    spec = importlib.util.spec_from_file_location(module_name, TOOL_PATH)
-    if spec is None or spec.loader is None:
-        raise RuntimeError("could not load vendoring tool")
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[module_name] = module
-    previous_dont_write_bytecode = sys.dont_write_bytecode
-    sys.dont_write_bytecode = True
-    try:
-        spec.loader.exec_module(module)
-    finally:
-        sys.dont_write_bytecode = previous_dont_write_bytecode
-    return module
-
-
-tool = _load_tool()
 VendoringError = tool.VendoringError
 
 
@@ -125,14 +103,33 @@ class VendorSourceSelectionTest(unittest.TestCase):
             encoding="utf-8",
         )
 
-    def test_sync_extracts_committed_blob_and_writes_provenance(self) -> None:
-        tool.vendor(
+    def _actionize(
+        self,
+        mode: tool.VendoringMode,
+    ) -> tool.VendorSourceSelectionResponse:
+        request = tool.VendorSourceSelectionRequest(
             repository_root=self.project,
             recipe_path=self.recipe,
             checkout=self.checkout,
-            sync=True,
+            mode=mode,
         )
+        return tool.VendorSourceSelectionActionizer().actionize(request)
 
+    def test_sync_extracts_committed_blob_and_writes_provenance(self) -> None:
+        response = self._actionize(tool.VendoringMode.SYNC)
+
+        request = response.request
+
+        self.assertIs(response.request, request)
+        self.assertEqual(
+            response.disposition,
+            tool.VendoringDisposition.SELECTION_SYNCHRONIZED,
+        )
+        with self.assertRaisesRegex(VendoringError, "requested mode"):
+            replace(
+                response,
+                disposition=tool.VendoringDisposition.SELECTION_MATCHES,
+            )
         destination = self.project / "vendor/package/qoi.py"
         self.assertEqual(destination.read_bytes(), self.payload)
         provenance = json.loads(
@@ -144,31 +141,20 @@ class VendorSourceSelectionTest(unittest.TestCase):
         self.assertEqual(record["git_mode"], "100644")
         self.assertEqual(provenance["revision"], self.revision)
 
-        tool.vendor(
-            repository_root=self.project,
-            recipe_path=self.recipe,
-            checkout=self.checkout,
-            sync=False,
+        checked = self._actionize(tool.VendoringMode.CHECK)
+        self.assertEqual(
+            checked.disposition,
+            tool.VendoringDisposition.SELECTION_MATCHES,
         )
 
     def test_check_detects_a_modified_destination(self) -> None:
-        tool.vendor(
-            repository_root=self.project,
-            recipe_path=self.recipe,
-            checkout=self.checkout,
-            sync=True,
-        )
+        self._actionize(tool.VendoringMode.SYNC)
         self.project.joinpath("vendor/package/qoi.py").write_text(
             "modified\n", encoding="utf-8"
         )
 
         with self.assertRaisesRegex(VendoringError, "out of date"):
-            tool.vendor(
-                repository_root=self.project,
-                recipe_path=self.recipe,
-                checkout=self.checkout,
-                sync=False,
-            )
+            self._actionize(tool.VendoringMode.CHECK)
 
     def test_rejects_a_source_path_not_authorized_by_the_declaration(self) -> None:
         recipe = self.recipe.read_text(encoding="utf-8").replace(
@@ -177,12 +163,7 @@ class VendorSourceSelectionTest(unittest.TestCase):
         self.recipe.write_text(recipe, encoding="utf-8")
 
         with self.assertRaisesRegex(VendoringError, "not authorized"):
-            tool.vendor(
-                repository_root=self.project,
-                recipe_path=self.recipe,
-                checkout=self.checkout,
-                sync=True,
-            )
+            self._actionize(tool.VendoringMode.SYNC)
 
     def test_inline_example_tree_authorizes_a_contained_source_path(self) -> None:
         source_declaration = self.project.joinpath("sources/example.toml").read_text(
@@ -199,12 +180,7 @@ class VendorSourceSelectionTest(unittest.TestCase):
         )
         self.recipe.write_text(recipe, encoding="utf-8")
 
-        tool.vendor(
-            repository_root=self.project,
-            recipe_path=self.recipe,
-            checkout=self.checkout,
-            sync=True,
-        )
+        self._actionize(tool.VendoringMode.SYNC)
 
         self.assertEqual(
             self.project.joinpath("vendor/package/unselected.py").read_bytes(),
@@ -218,7 +194,7 @@ class VendorSourceSelectionTest(unittest.TestCase):
         self.recipe.write_text(recipe, encoding="utf-8")
 
         with self.assertRaisesRegex(VendoringError, "normalized relative"):
-            tool.load_recipe(self.recipe)
+            self._actionize(tool.VendoringMode.SYNC)
 
 
 if __name__ == "__main__":

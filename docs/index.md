@@ -26,6 +26,7 @@ validation.
   release status, local-checkout conventions, and pin-update requirements.
 - [`development/index.md`](development/index.md) defines setup, verification,
   external-checkout variables, documentation maintenance, and CI.
+- [`tools/index.md`](tools/index.md) documents typed development-tool boundaries.
 - [`security/index.md`](security/index.md) defines trust boundaries, defensive
   controls, and residual limits.
 
