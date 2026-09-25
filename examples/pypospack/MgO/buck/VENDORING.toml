@@ -1,0 +1,149 @@
+schema_version = 1
+component = "pypospack"
+
+[provenance]
+path = "examples/pypospack/MgO/buck/PROVENANCE.json"
+source_example = "examples/MgO__buck__iterative_sampler"
+representation = "MgO/buck"
+
+[[files]]
+role = "iterative_sampler_input"
+source = "examples/MgO__buck__iterative_sampler/data/pyposmat.config.in"
+destination = "examples/pypospack/MgO/buck/data/pyposmat.config.in"
+
+[[files]]
+role = "structure"
+source = "examples/MgO__buck__iterative_sampler/structure_db/MgO_NaCl_001s.vasp"
+destination = "examples/pypospack/MgO/buck/structure_db/MgO_NaCl_001s.vasp"
+
+[[files]]
+role = "structure"
+source = "examples/MgO__buck__iterative_sampler/structure_db/MgO_NaCl_333_fr_a.vasp"
+destination = "examples/pypospack/MgO/buck/structure_db/MgO_NaCl_333_fr_a.vasp"
+
+[[files]]
+role = "structure"
+source = "examples/MgO__buck__iterative_sampler/structure_db/MgO_NaCl_333_fr_c.vasp"
+destination = "examples/pypospack/MgO/buck/structure_db/MgO_NaCl_333_fr_c.vasp"
+
+[[files]]
+role = "structure"
+source = "examples/MgO__buck__iterative_sampler/structure_db/MgO_NaCl_333_sch.vasp"
+destination = "examples/pypospack/MgO/buck/structure_db/MgO_NaCl_333_sch.vasp"
+
+[[files]]
+role = "structure"
+source = "examples/MgO__buck__iterative_sampler/structure_db/MgO_NaCl_unit.gga.relax.vasp"
+destination = "examples/pypospack/MgO/buck/structure_db/MgO_NaCl_unit.gga.relax.vasp"
+
+[[files]]
+role = "iterative_sampler_implementation"
+source = "pypospack/pyposmat/engines/mc_sampler_iterate.py"
+destination = "examples/pypospack/MgO/buck/mc_sampler_iterate.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qoi.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qoi.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/MgO.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/MgO.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/__init__.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/__init__.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/abstract_qoi.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/abstract_qoi.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/crystalstructuregeometry.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/crystalstructuregeometry.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/gulp_gamma_phonons.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/gulp_gamma_phonons.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/lammps_defect_formation_energy.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/lammps_defect_formation_energy.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/lammps_elastic_properties.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/lammps_elastic_properties.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/lammps_min_none.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/lammps_min_none.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/lammps_phase_order.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/lammps_phase_order.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/lammps_stacking_fault.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/lammps_stacking_fault.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/lammps_surface_energy.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/lammps_surface_energy.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/lammps_thermal_expansion.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/lammps_thermal_expansion.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/phase_order.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/phase_order.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/qoi_manager.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/qoi_manager.py"
+
+[[files]]
+role = "qoi_runtime"
+source = "pypospack/qois/qoidb.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/qois/qoidb.py"
+
+[[derived_files]]
+role = "iterative_sampler_entrypoint"
+based_on = "examples/MgO__buck__iterative_sampler/mc_iterative_sampler.py"
+destination = "examples/pypospack/MgO/buck/mc_iterative_sampler.py"
+local_modifications = "Reworked the historical launcher to prepend the provenance-bound partial PyPosPack package, import the adjacent vendored sampler implementation, validate the immutable scientific input through the maintained configuration adapter, separate machine-specific execution settings, require an explicit LAMMPS executable, resolve and persist the random seed, write a resolved run snapshot, and report configuration errors without entering the simulation workflow."
+
+[[derived_files]]
+role = "partial_package_adapter"
+based_on = "pypospack/__init__.py"
+destination = "examples/pypospack/MgO/buck/vendor/pypospack/__init__.py"
+local_modifications = "Added pkgutil.extend_path so the vendored QOI package composes with non-QOI modules supplied by the exact pinned PyPosPack dependency; expanded the module docstring to disclose the partial-package behavior."
+
+[[maintained_files]]
+role = "configuration_adapter"
+destination = "examples/pypospack/MgO/buck/configuration.py"
+origin = "Locally authored; not an upstream file."
+
+[[maintained_files]]
+role = "documentation"
+destination = "examples/pypospack/MgO/buck/README.md"
+origin = "Locally authored; not an upstream file."
+
+[[maintained_files]]
+role = "vendoring_recipe"
+destination = "examples/pypospack/MgO/buck/VENDORING.toml"
+origin = "Locally authored; not an upstream file."

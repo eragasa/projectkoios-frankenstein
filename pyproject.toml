@@ -7,7 +7,11 @@ name = "projectkoios-frankenstein"
 version = "0.1.0.dev0"
 description = "Provenance-bound reconstructions of external scientific workflows"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "mpi4py>=4.1,<5",
+    "numpy>=2.3,<3",
+    "pypospack[all] @ git+https://github.com/eragasa/pypospack.git@be453fa7191e55a0426f66e8b5b5b0b103c8b29d",
+]
 
 [project.urls]
 Repository = "https://github.com/eragasa/projectkoios-frankenstein"
@@ -37,6 +41,7 @@ testpaths = ["tests"]
 [tool.ruff]
 target-version = "py314"
 line-length = 88
+extend-exclude = ["examples"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]

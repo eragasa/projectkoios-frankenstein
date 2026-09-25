@@ -1,0 +1,1581 @@
+{
+  "schema_version": 1,
+  "component": "pyflamestk",
+  "repository": "https://github.com/eragasa/pyflamestk",
+  "revision": "5b8368cc88d91bc56f9cc1c8a7fa8d9ea3d6b359",
+  "tree": "02e20f61a9b554ed0dcbda15bb24adc21e942007",
+  "upstream_examples_root": "examples",
+  "selection": {
+    "scope": "Code files committed beneath the upstream examples/ tree.",
+    "included": [
+      "Python files (.py and .pyw)",
+      "shell files (.sh, .bash, and .zsh)",
+      "scheduler shell files (.pbs, .slurm, and .sl)",
+      "Jupyter notebooks (.ipynb)",
+      "extensionless files with a Python/shell shebang or an unambiguous Python opening statement"
+    ],
+    "excluded": [
+      "source-package files outside upstream examples/",
+      "simulation inputs, configuration, data, plots, logs, and generated outputs",
+      "AppleDouble resource-fork files"
+    ]
+  },
+  "local_modifications": "None. Vendored code bytes and Git executable modes are preserved.",
+  "license": {
+    "original_path": "LICENSE",
+    "vendored_path": "examples/pyflamestk/LICENSE",
+    "git_blob_oid": "6c4e2ed28dae688b277c21a8a54ca94ac8981172",
+    "sha256": "8e8ff7b5f5de2f4f1b48a18108d6268769739d622cfb671078565ab56bef28aa",
+    "byte_size": 1394
+  },
+  "files": [
+    {
+      "original_path": "examples/MgO_buck_gulp/gulp_MgO_properties/gulp_MgO.py",
+      "vendored_path": "examples/pyflamestk/MgO_buck_gulp/gulp_MgO_properties/gulp_MgO.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "109d2168f3c05a9d1ebf5c79106d4cbc2e08b5ce",
+      "sha256": "55150822b9f7875913417382c9615abc04d3c03d60d3de00c3b7a77a6eca22b5",
+      "byte_size": 1591
+    },
+    {
+      "original_path": "examples/MgO_buck_gulp/gulp_MgO_properties/run_simulations.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buck_gulp/gulp_MgO_properties/run_simulations.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "7dc58608e4944d09bba7825e350aa609a603d4b2",
+      "sha256": "7f5112c303588993939c557af389e83c9c7c74f09e68381e9d50d6485bcbe4c2",
+      "byte_size": 72
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_iterate/MgO_buckingham_iterate_mpi.py",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_iterate/MgO_buckingham_iterate_mpi.py",
+      "code_kind": "python",
+      "git_mode": "100755",
+      "git_blob_oid": "1a1c5c58be2b0f2219c9cb7040732d9a9459bfa4",
+      "sha256": "b0c4a1820ab7239709cc75ef5a56388f7d55326af603e5ef00f6d30b9e1454b0",
+      "byte_size": 1157
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_iterate/archive.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_iterate/archive.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "4a3f68af0c84314965f7bfd39d1ecf4c17bf08e4",
+      "sha256": "81e1ccb64fc9180a371694f0f1cbb3bfdc5ae3b94fd1823aaa68074ae50c0a37",
+      "byte_size": 69
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_iterate/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_iterate/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "2f51b9799fc9836f62bad661bbef09b18f0ba513",
+      "sha256": "98ec187d710bc6630763fee990b40b2c74198afeede0714e8ff5c0401f9d9995",
+      "byte_size": 175
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_iterate/run_minerva.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_iterate/run_minerva.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "ff0674bad2cab27e8302d8bb9700196443e965eb",
+      "sha256": "369491b540fff8dd3d4a2e16aaff6e22d69284445fd0f21e5ea1cb58aec55043",
+      "byte_size": 71
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_iterate/run_nersc_edison.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_iterate/run_nersc_edison.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "21c905ec641bc680748dde39b762379e86898fbc",
+      "sha256": "3e61c57fca5c88e47b680a78542e89c012571f6f2e3b997090c01fbec09e9d2b",
+      "byte_size": 97
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_iterate/runjob_nersc_edison.sl",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_iterate/runjob_nersc_edison.sl",
+      "code_kind": "scheduler-shell",
+      "git_mode": "100644",
+      "git_blob_oid": "97cc4c89a5f39e462a0b78c8d68d84112ae84dff",
+      "sha256": "a17b1648e54d53a28db31b3279b9a76f4bbc8c8877ec055208abb9efaaeacfcb",
+      "byte_size": 737
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_kde/call_LAMMPS_concurrently.py",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_kde/call_LAMMPS_concurrently.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "8ec0eb3ac314cb2aa0a33e819fc86450932ccf32",
+      "sha256": "7dccc605933fa93e323a32898d90a492f4637b6e4f904bf2e1a8dfb80dc51a4a",
+      "byte_size": 1441
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_kde/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_kde/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "6b9e49b2c3aee0ceb910cbc5967c79b7803a9d19",
+      "sha256": "1ce7183e96d99d63d43ab0c20c1ea8421ba2854ca25e1013c763e16381c736da",
+      "byte_size": 109
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_kde/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_kde/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_kde/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_kde/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_kde/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_kde/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_kde/lmp_scripts_db/min/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_kde/lmp_scripts_db/min/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "882640d95742fd9a2e754c29f8ca6700641c1f6f",
+      "sha256": "b8ce3adb8d5d8c81f4b7b7cc5fb955ae026b32ed78b1ba014a18557e4bf1554f",
+      "byte_size": 391
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_kde/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_kde/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_kde/run_lbl.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_kde/run_lbl.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "21c905ec641bc680748dde39b762379e86898fbc",
+      "sha256": "3e61c57fca5c88e47b680a78542e89c012571f6f2e3b997090c01fbec09e9d2b",
+      "byte_size": 97
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_kde/runjob_anl_blues.pbs",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_kde/runjob_anl_blues.pbs",
+      "code_kind": "scheduler-shell",
+      "git_mode": "100644",
+      "git_blob_oid": "7bebf034b51398fafd5a0d50d428b2af064c4354",
+      "sha256": "87184e35fba07d5ae986bc63d573ef6d24318e63a88a5cc508bf4cbdb9f73b59",
+      "byte_size": 1569
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_kde/runjob_nersc_edison.sl",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_kde/runjob_nersc_edison.sl",
+      "code_kind": "scheduler-shell",
+      "git_mode": "100644",
+      "git_blob_oid": "b43a03b9d0b588ab38b164c738f6151107090fb2",
+      "sha256": "54620991220f2fda85f2a8c61b990d914fb212d9130cd63fb28b393b833cfdfd",
+      "byte_size": 726
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_uniform/anl_concurrent_lammps.pbs",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_uniform/anl_concurrent_lammps.pbs",
+      "code_kind": "scheduler-shell",
+      "git_mode": "100644",
+      "git_blob_oid": "7bebf034b51398fafd5a0d50d428b2af064c4354",
+      "sha256": "87184e35fba07d5ae986bc63d573ef6d24318e63a88a5cc508bf4cbdb9f73b59",
+      "byte_size": 1569
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_uniform/call_LAMMPS_concurrently.py",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_uniform/call_LAMMPS_concurrently.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "00c560c0a6f6b65844d03754b2e3492d3002ba04",
+      "sha256": "9fe4b3750fcc3802eac2749d89c6cd4d320e0748c4aeac6e46aa8a2997a3685e",
+      "byte_size": 8310
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_uniform/lbl_concurrent_lammps.sl",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_uniform/lbl_concurrent_lammps.sl",
+      "code_kind": "scheduler-shell",
+      "git_mode": "100644",
+      "git_blob_oid": "b43a03b9d0b588ab38b164c738f6151107090fb2",
+      "sha256": "54620991220f2fda85f2a8c61b990d914fb212d9130cd63fb28b393b833cfdfd",
+      "byte_size": 726
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_uniform/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_uniform/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_uniform/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_uniform/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_uniform/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_uniform/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_uniform/lmp_scripts_db/min/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_uniform/lmp_scripts_db/min/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "882640d95742fd9a2e754c29f8ca6700641c1f6f",
+      "sha256": "b8ce3adb8d5d8c81f4b7b7cc5fb955ae026b32ed78b1ba014a18557e4bf1554f",
+      "byte_size": 391
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_uniform/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_uniform/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_mpi_uniform/run_lbl.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_mpi_uniform/run_lbl.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "33c62dd9dfc312b212f1148525a69108f2569409",
+      "sha256": "a30d2e5aa6e584c3f56bc1098ece2c7ff3d4b440a8884da1e4581a8e9800b353",
+      "byte_size": 99
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_pareto_iterate/buckingham_iterate.py",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_pareto_iterate/buckingham_iterate.py",
+      "code_kind": "python",
+      "git_mode": "100755",
+      "git_blob_oid": "8feecf40b818eb07e06e563f55aa634cd14263a6",
+      "sha256": "bb8ce309ed1cfa53aa88e02a3f07c6fcc467873865235a34cfff2de1d7be0a56",
+      "byte_size": 3392
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_pareto_iterate/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_pareto_iterate/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "725adb3e1fe2502388e8c4b75d4d6018833a9e0b",
+      "sha256": "74226c04f69205a6edc5086ec40de5ea6e211183c0980e5c2f3f73273f2932a9",
+      "byte_size": 135
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_pareto_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_pareto_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_pareto_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_pareto_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_pareto_iterate/runsimulation_flames.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_pareto_iterate/runsimulation_flames.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "bffb0b573996191eda0dec611a67291197270a62",
+      "sha256": "ab0fb84d7f9fe95ab10af08fbae8e32efc4313d8f02217a05effe186fb1472ef",
+      "byte_size": 78
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_pareto_iterate/runsimulation_osx.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_pareto_iterate/runsimulation_osx.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d3851d227c3fe04c9c371dbbaae5c80795ddb75f",
+      "sha256": "a02ea6159fda5fad779d73d24adf36301592d56ab470d7f2c770e11e3a4efc1e",
+      "byte_size": 475
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_iterate/buckingham_iterate.py",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_iterate/buckingham_iterate.py",
+      "code_kind": "python",
+      "git_mode": "100755",
+      "git_blob_oid": "4ea74e1cc908d7bad7c07fb170421522b711484b",
+      "sha256": "d3d48c66dc94db5f77127dbf5aac1d9d5928606281e8f5ee452f875fb9c305c7",
+      "byte_size": 3963
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_iterate/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_iterate/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "2ac4e3af6604748660e01a60cb360068aeabe971",
+      "sha256": "eebf8408585ca7da72d15846f0cb8d44aa90a62a44b55f6e272b5cbc62a36a19",
+      "byte_size": 225
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "a4d6201dc2e59a5289124dbec18c1ff767735b19",
+      "sha256": "416b3cf9268cfeb8b6996abd13da41df57e70dab2c12d085220d61948c14969e",
+      "byte_size": 300
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "4d90e3c9607fe11425eddb27c95f082a8e091dd2",
+      "sha256": "6096a39c2943b089a1a72be699b5cf90d420fa6a2d43568e566d1293cd47271f",
+      "byte_size": 266
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "f51e76df912d46936b97d85f5356af9c262c5571",
+      "sha256": "43a8a1420254275efa41f7c41afb0ef1993de9ee6aa6dc2fa151919b3faede1a",
+      "byte_size": 268
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "1fbd36ecd5d5e4994321647460acbe1d4c5b15fd",
+      "sha256": "088cc0c610542dea3c004aa484e4a220b27c80954ce9b8762aaf040c061b4699",
+      "byte_size": 271
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_iterate/runsimulation_flames.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_iterate/runsimulation_flames.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "873b8854860515a77fc97794f141a24c0e76e7e9",
+      "sha256": "a8653c75ff117ce37712734b84d870efda6378060b95b95e0499ddc9849c4547",
+      "byte_size": 212
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_iterate/runsimulation_osx.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_iterate/runsimulation_osx.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "fdad2e31c91cdf3d7ba58472eefc1290e81a92ca",
+      "sha256": "85bd181702b3770f728cd58ea30b524fcc73fe928998a9c4c7ec588590d7056d",
+      "byte_size": 371
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_single/buckingham_single.py",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_single/buckingham_single.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "c3e3c7281cd229c671777d70ae3afe6bf73cc097",
+      "sha256": "6000b19d870d03e2cd3cdc58ed8fff2fca5b6241a557173e6cd9dedc321771e0",
+      "byte_size": 1121
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_single/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_single/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "8c0208785b6f6beef68b4d7a0fa6f6bd8687a4c9",
+      "sha256": "380c6b92db4952dee24a654dc8374ab152cde06c19d1677270a53f22f394c96d",
+      "byte_size": 104
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_single/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_single/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "4ac115cd920e4986898fcff0c6c48992a3664f6f",
+      "sha256": "f7fe11f88401e299d4593e0bac64d2e9bafbacc0dffaf9190e31db72cc1bbef9",
+      "byte_size": 261
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_single/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_single/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "4d90e3c9607fe11425eddb27c95f082a8e091dd2",
+      "sha256": "6096a39c2943b089a1a72be699b5cf90d420fa6a2d43568e566d1293cd47271f",
+      "byte_size": 266
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_single/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_single/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "f51e76df912d46936b97d85f5356af9c262c5571",
+      "sha256": "43a8a1420254275efa41f7c41afb0ef1993de9ee6aa6dc2fa151919b3faede1a",
+      "byte_size": 268
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_single/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_single/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "1fbd36ecd5d5e4994321647460acbe1d4c5b15fd",
+      "sha256": "088cc0c610542dea3c004aa484e4a220b27c80954ce9b8762aaf040c061b4699",
+      "byte_size": 271
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_single/run_my_minerva.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_single/run_my_minerva.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "b04374a7e4e769cb3c97afe226af0b0cccb1031b",
+      "sha256": "140ce73320e8bca09cf656a73d2fee6bd7b40040e883ebd323bd55a3c224cbdc",
+      "byte_size": 128
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_uniform/buckingham_pareto.py",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_uniform/buckingham_pareto.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "cfd8ba86d39235806463fa3c4fc653fa40320c7c",
+      "sha256": "1f3a1a529efac83aba46ba917dafe244b4f0a86f46e11c3b2c3acac8b607d0ea",
+      "byte_size": 1076
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_uniform/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_uniform/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "40389b6a9c82f96390130a1caa78023522978d72",
+      "sha256": "a131caf9711fda00743b72737a44db84ed67aa4df7667de48b936e0d5e0981b2",
+      "byte_size": 93
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_uniform/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_uniform/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_uniform/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_uniform/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_uniform/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_uniform/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_uniform/lmp_scripts_db/min/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_uniform/lmp_scripts_db/min/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "882640d95742fd9a2e754c29f8ca6700641c1f6f",
+      "sha256": "b8ce3adb8d5d8c81f4b7b7cc5fb955ae026b32ed78b1ba014a18557e4bf1554f",
+      "byte_size": 391
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_uniform/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_uniform/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_uniform/runsimulation_flames.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_uniform/runsimulation_flames.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "01f5441cb5cea14488789ade7efdd63480e1faef",
+      "sha256": "731ef063dc4a428c7cbad2388ef647c1553ae696cb701ac3c0d9d1e0c7f50290",
+      "byte_size": 268
+    },
+    {
+      "original_path": "examples/MgO_buckingham/lmps_MgO_serial_uniform/runsimulation_osx.sh",
+      "vendored_path": "examples/pyflamestk/MgO_buckingham/lmps_MgO_serial_uniform/runsimulation_osx.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "05ea93db63123062c6e06bdc6c2b7e4f98fa40c7",
+      "sha256": "d214a4bbefe6feb9b3405f66d70af316d68de39172b310e0ff3b9250c715146b",
+      "byte_size": 371
+    },
+    {
+      "original_path": "examples/Ni_eam/cutoff_function.py",
+      "vendored_path": "examples/pyflamestk/Ni_eam/cutoff_function.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "37f13b0c0cc48b91b4e908d8f1f6843b313d5bf3",
+      "sha256": "33a3ce738f3f229202ec5be1af4609070c86a47bba2a49707c8fa1ab0bbb93cf",
+      "byte_size": 510
+    },
+    {
+      "original_path": "examples/Ni_eam/cutoff_function.sh",
+      "vendored_path": "examples/pyflamestk/Ni_eam/cutoff_function.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "a309e25bde772d6e5af6c06252db9287fb9c6d81",
+      "sha256": "626d8d37d9addefb749e5120ee341e8ca769b4c06547e74043a12ab184f52388",
+      "byte_size": 99
+    },
+    {
+      "original_path": "examples/Ni_eam/eam_potential.py",
+      "vendored_path": "examples/pyflamestk/Ni_eam/eam_potential.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "e46034c2d27b93d51e485daaf7df7091842cc9fe",
+      "sha256": "004ab9d545077e130ca6cdcb4e7752602d72cc47625369d933840609c29080bc",
+      "byte_size": 2493
+    },
+    {
+      "original_path": "examples/Ni_eam/eam_potential.sh",
+      "vendored_path": "examples/pyflamestk/Ni_eam/eam_potential.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "23698062dd17b4e352c5aeca2fd881ddce2d8695",
+      "sha256": "a06028b68148a8c9f7f9892850c180958627f4f0ea04d5544a49570bd80e3eee",
+      "byte_size": 73
+    },
+    {
+      "original_path": "examples/Ni_eam/exp_dens_funct.py",
+      "vendored_path": "examples/pyflamestk/Ni_eam/exp_dens_funct.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "8ee19da57b9c801663f1828c226a999277cec46a",
+      "sha256": "34c6560658e21edadcbd950776c7cb331b3b03e75f16c5d2a49a7ae1a7acf119",
+      "byte_size": 1379
+    },
+    {
+      "original_path": "examples/Ni_eam/exp_dens_funct.sh",
+      "vendored_path": "examples/pyflamestk/Ni_eam/exp_dens_funct.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "14caee6a2a1894040dea7a09c41f68a435e6c0cb",
+      "sha256": "925924dfb71c937f6902d5a429c49fd964c5a46d5c73647e797b40326f43c7b3",
+      "byte_size": 98
+    },
+    {
+      "original_path": "examples/Ni_eam/morse_potential.py",
+      "vendored_path": "examples/pyflamestk/Ni_eam/morse_potential.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "e0b8dbf5a17c9abf22248ce74e5a7dbe95cadf25",
+      "sha256": "5f2bedaf7ced874d581d7fb057945567bb1e4aca8dac0a68cd478c1bec80228b",
+      "byte_size": 1579
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_pareto_iterate/buckingham_iterate.py",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_pareto_iterate/buckingham_iterate.py",
+      "code_kind": "python",
+      "git_mode": "100755",
+      "git_blob_oid": "8feecf40b818eb07e06e563f55aa634cd14263a6",
+      "sha256": "bb8ce309ed1cfa53aa88e02a3f07c6fcc467873865235a34cfff2de1d7be0a56",
+      "byte_size": 3392
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_pareto_iterate/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_pareto_iterate/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "725adb3e1fe2502388e8c4b75d4d6018833a9e0b",
+      "sha256": "74226c04f69205a6edc5086ec40de5ea6e211183c0980e5c2f3f73273f2932a9",
+      "byte_size": 135
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_pareto_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_pareto_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_pareto_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_pareto_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_pareto_iterate/runsimulation_flames.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_pareto_iterate/runsimulation_flames.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "bffb0b573996191eda0dec611a67291197270a62",
+      "sha256": "ab0fb84d7f9fe95ab10af08fbae8e32efc4313d8f02217a05effe186fb1472ef",
+      "byte_size": 78
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_pareto_iterate/runsimulation_osx.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_pareto_iterate/runsimulation_osx.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d3851d227c3fe04c9c371dbbaae5c80795ddb75f",
+      "sha256": "a02ea6159fda5fad779d73d24adf36301592d56ab470d7f2c770e11e3a4efc1e",
+      "byte_size": 475
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_serial_iterate/buckingham_iterate.py",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_serial_iterate/buckingham_iterate.py",
+      "code_kind": "python",
+      "git_mode": "100755",
+      "git_blob_oid": "711774b5393901e5031527f4dddcb41f4027d854",
+      "sha256": "3385733f8e0f3f86ac19d52a57b4e40785da3b99945fd175b928f886705e6445",
+      "byte_size": 3891
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_serial_iterate/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_serial_iterate/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "2f51b9799fc9836f62bad661bbef09b18f0ba513",
+      "sha256": "98ec187d710bc6630763fee990b40b2c74198afeede0714e8ff5c0401f9d9995",
+      "byte_size": 175
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_serial_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_serial_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "a4d6201dc2e59a5289124dbec18c1ff767735b19",
+      "sha256": "416b3cf9268cfeb8b6996abd13da41df57e70dab2c12d085220d61948c14969e",
+      "byte_size": 300
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_serial_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_serial_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "4d90e3c9607fe11425eddb27c95f082a8e091dd2",
+      "sha256": "6096a39c2943b089a1a72be699b5cf90d420fa6a2d43568e566d1293cd47271f",
+      "byte_size": 266
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_serial_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_serial_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "f51e76df912d46936b97d85f5356af9c262c5571",
+      "sha256": "43a8a1420254275efa41f7c41afb0ef1993de9ee6aa6dc2fa151919b3faede1a",
+      "byte_size": 268
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_serial_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_serial_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "1fbd36ecd5d5e4994321647460acbe1d4c5b15fd",
+      "sha256": "088cc0c610542dea3c004aa484e4a220b27c80954ce9b8762aaf040c061b4699",
+      "byte_size": 271
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_MgO_serial_iterate/run_minerva.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_MgO_serial_iterate/run_minerva.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "ff0674bad2cab27e8302d8bb9700196443e965eb",
+      "sha256": "369491b540fff8dd3d4a2e16aaff6e22d69284445fd0f21e5ea1cb58aec55043",
+      "byte_size": 71
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_Si_serial_pareto/buckingham_pareto.py",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_Si_serial_pareto/buckingham_pareto.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "cfd8ba86d39235806463fa3c4fc653fa40320c7c",
+      "sha256": "1f3a1a529efac83aba46ba917dafe244b4f0a86f46e11c3b2c3acac8b607d0ea",
+      "byte_size": 1076
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_Si_serial_pareto/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_Si_serial_pareto/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "40389b6a9c82f96390130a1caa78023522978d72",
+      "sha256": "a131caf9711fda00743b72737a44db84ed67aa4df7667de48b936e0d5e0981b2",
+      "byte_size": 93
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_Si_serial_pareto/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_Si_serial_pareto/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_Si_serial_pareto/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_Si_serial_pareto/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_Si_serial_pareto/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_Si_serial_pareto/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_Si_serial_pareto/lmp_scripts_db/min/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_Si_serial_pareto/lmp_scripts_db/min/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "882640d95742fd9a2e754c29f8ca6700641c1f6f",
+      "sha256": "b8ce3adb8d5d8c81f4b7b7cc5fb955ae026b32ed78b1ba014a18557e4bf1554f",
+      "byte_size": 391
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_Si_serial_pareto/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_Si_serial_pareto/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_Si_serial_pareto/runsimulation_flames.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_Si_serial_pareto/runsimulation_flames.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "01f5441cb5cea14488789ade7efdd63480e1faef",
+      "sha256": "731ef063dc4a428c7cbad2388ef647c1553ae696cb701ac3c0d9d1e0c7f50290",
+      "byte_size": 268
+    },
+    {
+      "original_path": "examples/Si_tersoff/lmps_Si_serial_pareto/runsimulation_osx.sh",
+      "vendored_path": "examples/pyflamestk/Si_tersoff/lmps_Si_serial_pareto/runsimulation_osx.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "05ea93db63123062c6e06bdc6c2b7e4f98fa40c7",
+      "sha256": "d214a4bbefe6feb9b3405f66d70af316d68de39172b310e0ff3b9250c715146b",
+      "byte_size": 371
+    },
+    {
+      "original_path": "examples/gulp_MgO_properties/gulp_MgO.py",
+      "vendored_path": "examples/pyflamestk/gulp_MgO_properties/gulp_MgO.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "89048853bded880d649f2355a98ebd48efa6e9ae",
+      "sha256": "d950e8e8b44e77132e432c8d919c12ef7514f0be3d1daf255fa00e4f5e6e0719",
+      "byte_size": 1008
+    },
+    {
+      "original_path": "examples/lmps_MgO_mpi_uniform/anl_concurrent_lammps.pbs",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_mpi_uniform/anl_concurrent_lammps.pbs",
+      "code_kind": "scheduler-shell",
+      "git_mode": "100644",
+      "git_blob_oid": "7bebf034b51398fafd5a0d50d428b2af064c4354",
+      "sha256": "87184e35fba07d5ae986bc63d573ef6d24318e63a88a5cc508bf4cbdb9f73b59",
+      "byte_size": 1569
+    },
+    {
+      "original_path": "examples/lmps_MgO_mpi_uniform/call_LAMMPS_concurrently.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_mpi_uniform/call_LAMMPS_concurrently.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "00c560c0a6f6b65844d03754b2e3492d3002ba04",
+      "sha256": "9fe4b3750fcc3802eac2749d89c6cd4d320e0748c4aeac6e46aa8a2997a3685e",
+      "byte_size": 8310
+    },
+    {
+      "original_path": "examples/lmps_MgO_mpi_uniform/lbl_concurrent_lammps.sl",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_mpi_uniform/lbl_concurrent_lammps.sl",
+      "code_kind": "scheduler-shell",
+      "git_mode": "100644",
+      "git_blob_oid": "b43a03b9d0b588ab38b164c738f6151107090fb2",
+      "sha256": "54620991220f2fda85f2a8c61b990d914fb212d9130cd63fb28b393b833cfdfd",
+      "byte_size": 726
+    },
+    {
+      "original_path": "examples/lmps_MgO_mpi_uniform/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_mpi_uniform/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/lmps_MgO_mpi_uniform/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_mpi_uniform/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/lmps_MgO_mpi_uniform/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_mpi_uniform/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/lmps_MgO_mpi_uniform/lmp_scripts_db/min/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_mpi_uniform/lmp_scripts_db/min/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "882640d95742fd9a2e754c29f8ca6700641c1f6f",
+      "sha256": "b8ce3adb8d5d8c81f4b7b7cc5fb955ae026b32ed78b1ba014a18557e4bf1554f",
+      "byte_size": 391
+    },
+    {
+      "original_path": "examples/lmps_MgO_mpi_uniform/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_mpi_uniform/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/lmps_MgO_mpi_uniform/run_lbl.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_mpi_uniform/run_lbl.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "33c62dd9dfc312b212f1148525a69108f2569409",
+      "sha256": "a30d2e5aa6e584c3f56bc1098ece2c7ff3d4b440a8884da1e4581a8e9800b353",
+      "byte_size": 99
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_calc/buckingham_calc_pareto.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_calc/buckingham_calc_pareto.py",
+      "code_kind": "python",
+      "git_mode": "100755",
+      "git_blob_oid": "f14f825d7645ee61cd9f25c1c9abf8a0690ebae1",
+      "sha256": "b56892737d23482bd90e5bbd960e835de6501bb823a9c683fc691ad50193f111",
+      "byte_size": 461
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_calc/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_calc/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "c9264ec7a853f5a2a93aca657cbd698ffcf6f925",
+      "sha256": "44995ce89427beff197194d14f367d67a642bdef4766c2fed7798daed8dedfe3",
+      "byte_size": 72
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_calc/run_script_minerva.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_calc/run_script_minerva.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "402671580aa23440dca161b82d72b6bf1f5cbe0a",
+      "sha256": "2170522c66bed449583505a932b8d7722a82db4493750568e557a8ae084f2d20",
+      "byte_size": 366
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_iterate/buckingham_iterate.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_iterate/buckingham_iterate.py",
+      "code_kind": "python",
+      "git_mode": "100755",
+      "git_blob_oid": "8feecf40b818eb07e06e563f55aa634cd14263a6",
+      "sha256": "bb8ce309ed1cfa53aa88e02a3f07c6fcc467873865235a34cfff2de1d7be0a56",
+      "byte_size": 3392
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_iterate/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_iterate/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "4d8ac14228521a7530f5101c7c467f9adbca8c57",
+      "sha256": "04fb211391c5e90b97f2f84410a8d0c115bf92d159f19244a992aa4818e4b090",
+      "byte_size": 141
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_iterate/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_iterate/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_iterate/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_iterate/run_script.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_iterate/run_script.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "c963318ed2bda39f3638ea96634545eba875be18",
+      "sha256": "8f99c0b3e35baab96b2eba392bcf19121a7f61d315393e7b752fe98d5d26678e",
+      "byte_size": 58
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_iterate/runsimulation_flames.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_iterate/runsimulation_flames.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "bffb0b573996191eda0dec611a67291197270a62",
+      "sha256": "ab0fb84d7f9fe95ab10af08fbae8e32efc4313d8f02217a05effe186fb1472ef",
+      "byte_size": 78
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_iterate/runsimulation_osx.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_iterate/runsimulation_osx.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "bffb0b573996191eda0dec611a67291197270a62",
+      "sha256": "ab0fb84d7f9fe95ab10af08fbae8e32efc4313d8f02217a05effe186fb1472ef",
+      "byte_size": 78
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_post/buckingham_pareto_report.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_post/buckingham_pareto_report.py",
+      "code_kind": "python",
+      "git_mode": "100755",
+      "git_blob_oid": "ac8bc0b501af70117a366f716d284c7fe4a86dee",
+      "sha256": "be581aa9a786795c5fb73c78fb46b20e002cd52a9cf6f4e190b4235f216a84b4",
+      "byte_size": 6240
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_post/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_post/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "c9264ec7a853f5a2a93aca657cbd698ffcf6f925",
+      "sha256": "44995ce89427beff197194d14f367d67a642bdef4766c2fed7798daed8dedfe3",
+      "byte_size": 72
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_post/manifold_learning.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_post/manifold_learning.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "d6cb7eebafecf557d21878d2e71c892b85c2c287",
+      "sha256": "c7b4f1c3c05d92050306ed92e6f6eb32e9504f8d440ef4b4f53c1a962d099776",
+      "byte_size": 2409
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_post/pca_analysis.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_post/pca_analysis.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "2220cf68a2240f936583292d4409e5a7e4dea308",
+      "sha256": "140a6f557144917c049e9ca194d8dfdac5387fe45241da0741d7b5c986d76945",
+      "byte_size": 3123
+    },
+    {
+      "original_path": "examples/lmps_MgO_pareto_post/run_script_minerva.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_pareto_post/run_script_minerva.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "f2045cb9a85f48e301b164b87243243cb63b200b",
+      "sha256": "0e3ea2162342feb488aa4a5eb9f793cecc788f6c14bc6fbabdfcb305a68802aa",
+      "byte_size": 368
+    },
+    {
+      "original_path": "examples/lmps_MgO_regression_tests/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_regression_tests/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "c7f669324c55a623c9db27fe83aebba3a92a8fa3",
+      "sha256": "8473722eac5dc9a51d888b2e919c8f9609d4e9cfdfa6755b399f22721d4cd96e",
+      "byte_size": 77
+    },
+    {
+      "original_path": "examples/lmps_MgO_regression_tests/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_regression_tests/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/lmps_MgO_regression_tests/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_regression_tests/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/lmps_MgO_regression_tests/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_regression_tests/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/lmps_MgO_regression_tests/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_regression_tests/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/lmps_MgO_regression_tests/make_regression_test.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_regression_tests/make_regression_test.py",
+      "code_kind": "python",
+      "git_mode": "100755",
+      "git_blob_oid": "27e5623144c24b5e7d7ada98ec21e4757e2a9f38",
+      "sha256": "11397d376a1242faebdb84b32541d345520557b89a1516ab1cfb5627532b1732",
+      "byte_size": 3591
+    },
+    {
+      "original_path": "examples/lmps_MgO_regression_tests/regression_test.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_regression_tests/regression_test.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "4849bf26870006de28cca14e91992b1c2ccce117",
+      "sha256": "26c27e8140b7fa6e6001bef52ed3bca1a4ab9b2b83faf478b8d00457a0af3d9e",
+      "byte_size": 2814
+    },
+    {
+      "original_path": "examples/lmps_MgO_sample_file/buckingham_sample_file.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_sample_file/buckingham_sample_file.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "e06ae7c79cb9fdb9f44056f46c8e1241380d8897",
+      "sha256": "09cebadabaa8bc9700640739b4697f82b82cea93e9debb8b0be2b9157c78b625",
+      "byte_size": 648
+    },
+    {
+      "original_path": "examples/lmps_MgO_sample_file/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_sample_file/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "0692c2bce6ba935dc34060b6c48c5c4b6c73db9e",
+      "sha256": "4a63fec45210778309c8b5ad075d3d219aa6bab261086608810085371feb9fef",
+      "byte_size": 50
+    },
+    {
+      "original_path": "examples/lmps_MgO_sample_file/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_sample_file/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "8403a8d019293b6611616ae2dd26bf41b0162a01",
+      "sha256": "7e2b2e28033081c3a915a955b9d37c73789760630e7a2c7af5b62d5530e63643",
+      "byte_size": 154
+    },
+    {
+      "original_path": "examples/lmps_MgO_sample_file/lmp_scripts_db/min/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_sample_file/lmp_scripts_db/min/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "aa64bf748b636df05329cfa52df7896490f0d4f0",
+      "sha256": "9f4e8c04808da7c033e1ea1dcaa06e88f7c91892eca56ce7efb8a746b84aea07",
+      "byte_size": 64
+    },
+    {
+      "original_path": "examples/lmps_MgO_sample_file/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_sample_file/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "bb39b4bc89c3ed50c6a50e434dd5c8c8403b94d1",
+      "sha256": "53855cc5091c7cb31937048e9a713ec3796a5827bde73d3ecedb1d3701b742a0",
+      "byte_size": 73
+    },
+    {
+      "original_path": "examples/lmps_MgO_sample_post/pareto_postprocess.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_sample_post/pareto_postprocess.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "d459c9e1eed9bb9c6af1180a81f7eaee6bea16a3",
+      "sha256": "ee90855d519cef3f124a7352a9aafb3f205df1110d785ebb50f97fa17b001c3a",
+      "byte_size": 8116
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_kde/buckingham_kde.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_kde/buckingham_kde.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "71b6ca1881b4e2f314320bfce2c6ee32174d1ee3",
+      "sha256": "473695b2c657022bf33a2028598d327bb2ca468d6553944637db5d2736f4f86d",
+      "byte_size": 1110
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_kde/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_kde/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "deb7f3bcb8d674c29554a4bd4e24a77a19e81836",
+      "sha256": "1824b1d761e1f18b1df54d59b2e0dfa513815b2b7b4ffa618393d54880e90138",
+      "byte_size": 60
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_kde/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_kde/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "44846ee433537628b781a33a160f8b1a0936e1d4",
+      "sha256": "e8dfda23c7d579d47d3636351c51e55df75f108d3e3b8255a8b9ae19eb0b7ddb",
+      "byte_size": 639
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_kde/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_kde/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "62ae0434c1227727b7c4f368fed549d68bd4ee7e",
+      "sha256": "936ec1ed73a1bd2d9984efd9c3b4ca77b3864f7b7577e4c21f6db4e32f9a24d1",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_kde/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_kde/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "958a7df685e807ef002c0bf2d271cc7c06cf8c5b",
+      "sha256": "9358ea8e3622d1d01570a6bf8d5fed3149e59e2a061372bb6f267634417ec928",
+      "byte_size": 650
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_kde/lmp_scripts_db/min/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_kde/lmp_scripts_db/min/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "882640d95742fd9a2e754c29f8ca6700641c1f6f",
+      "sha256": "b8ce3adb8d5d8c81f4b7b7cc5fb955ae026b32ed78b1ba014a18557e4bf1554f",
+      "byte_size": 391
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_kde/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_kde/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "d064bfeb94899b0fdcf8be4af8b0152bbd674664",
+      "sha256": "b05fcea030de8481b4f9b3eaa15613fec0c8ea8964a779b9ffe86522c3466213",
+      "byte_size": 649
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_kde/runsimulations_minerva.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_kde/runsimulations_minerva.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "9dda856c57b8420a6fd94cc4957f4cb5c5406d20",
+      "sha256": "bd673da8fa72a524ff0865e4b6dad9fbb4ab28fe4f5bd9128d2524e93aab2ae7",
+      "byte_size": 102
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_uniform/buckingham_uniform.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_uniform/buckingham_uniform.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "951463ce63431987b595ab92d7b5975fe15c8860",
+      "sha256": "a3db198324c82d19adc96aca7c896f7fd295ebfbbb629a43fb84c40c583e7914",
+      "byte_size": 1069
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_uniform/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_uniform/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "deb7f3bcb8d674c29554a4bd4e24a77a19e81836",
+      "sha256": "1824b1d761e1f18b1df54d59b2e0dfa513815b2b7b4ffa618393d54880e90138",
+      "byte_size": 60
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_uniform/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_uniform/lmp_scripts_db/E_min_all/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "a4d6201dc2e59a5289124dbec18c1ff767735b19",
+      "sha256": "416b3cf9268cfeb8b6996abd13da41df57e70dab2c12d085220d61948c14969e",
+      "byte_size": 300
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_uniform/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_uniform/lmp_scripts_db/E_min_pos/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "4d90e3c9607fe11425eddb27c95f082a8e091dd2",
+      "sha256": "6096a39c2943b089a1a72be699b5cf90d420fa6a2d43568e566d1293cd47271f",
+      "byte_size": 266
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_uniform/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_uniform/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "f51e76df912d46936b97d85f5356af9c262c5571",
+      "sha256": "43a8a1420254275efa41f7c41afb0ef1993de9ee6aa6dc2fa151919b3faede1a",
+      "byte_size": 268
+    },
+    {
+      "original_path": "examples/lmps_MgO_serial_uniform/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_serial_uniform/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "1fbd36ecd5d5e4994321647460acbe1d4c5b15fd",
+      "sha256": "088cc0c610542dea3c004aa484e4a220b27c80954ce9b8762aaf040c061b4699",
+      "byte_size": 271
+    },
+    {
+      "original_path": "examples/lmps_MgO_surface/MgO_NaCl.elas/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_surface/MgO_NaCl.elas/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "ecc13ff76d68a3e227145f7c78de6d6a2a66723f",
+      "sha256": "70cc720293dc6889b0be2a959b59a819133c5a1cf6e2a97fada42c9727f487ad",
+      "byte_size": 652
+    },
+    {
+      "original_path": "examples/lmps_MgO_surface/MgO_NaCl.min/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_surface/MgO_NaCl.min/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "6d2abbaeb8db96a5c45ab8dfa796ab204e631e2a",
+      "sha256": "d202fd3d3fc21bf8c0f1ba3cc204d403492a8578a72de8de3a6c1669bab39d9d",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/lmps_MgO_surface/cleanup.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_surface/cleanup.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "82ceeabd88a1e60a4fd6f18faa6b74acc8f2115a",
+      "sha256": "88fdf304708b0d16208b7569a3f1cdd6db7864f54bd04e7e4111dcd5e8a102a2",
+      "byte_size": 87
+    },
+    {
+      "original_path": "examples/lmps_MgO_surface/lmp_scripts_db/elastic/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_surface/lmp_scripts_db/elastic/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "ecc13ff76d68a3e227145f7c78de6d6a2a66723f",
+      "sha256": "70cc720293dc6889b0be2a959b59a819133c5a1cf6e2a97fada42c9727f487ad",
+      "byte_size": 652
+    },
+    {
+      "original_path": "examples/lmps_MgO_surface/lmp_scripts_db/min/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_surface/lmp_scripts_db/min/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100755",
+      "git_blob_oid": "6d2abbaeb8db96a5c45ab8dfa796ab204e631e2a",
+      "sha256": "d202fd3d3fc21bf8c0f1ba3cc204d403492a8578a72de8de3a6c1669bab39d9d",
+      "byte_size": 644
+    },
+    {
+      "original_path": "examples/lmps_MgO_surface/lmp_scripts_db/single_point/runsimulation.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_surface/lmp_scripts_db/single_point/runsimulation.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "3ce92c7156f4c8fb0bf02bfcb6ef34de349fa718",
+      "sha256": "021f4a7af2785723677219bc8be568aeda6823c97e0bb9c0c964258d6017a3ef",
+      "byte_size": 466
+    },
+    {
+      "original_path": "examples/lmps_MgO_surface/make_regression_test.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_surface/make_regression_test.py",
+      "code_kind": "python",
+      "git_mode": "100755",
+      "git_blob_oid": "5c882140be9cfb189316b94ea333512af9509726",
+      "sha256": "d366969b68a0f717d90a6d22d2d745d59912510671cd52b8df090c9c22a91d79",
+      "byte_size": 3595
+    },
+    {
+      "original_path": "examples/lmps_MgO_surface/poscar_make_surface.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_surface/poscar_make_surface.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "27ef3351e305cb027bf85251f5013d7139b88a3e",
+      "sha256": "3d0bbe93239566b6d10a29f0f4c2bf3712b26b936779a340f0b540600eb74685",
+      "byte_size": 1408
+    },
+    {
+      "original_path": "examples/lmps_MgO_surface/regression_test.py",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_surface/regression_test.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "4849bf26870006de28cca14e91992b1c2ccce117",
+      "sha256": "26c27e8140b7fa6e6001bef52ed3bca1a4ab9b2b83faf478b8d00457a0af3d9e",
+      "byte_size": 2814
+    },
+    {
+      "original_path": "examples/lmps_MgO_surface/set_permissions.sh",
+      "vendored_path": "examples/pyflamestk/lmps_MgO_surface/set_permissions.sh",
+      "code_kind": "shell",
+      "git_mode": "100644",
+      "git_blob_oid": "f67589d1722bc7ca65d8dc0cc71510274a18436c",
+      "sha256": "75efd887935737ec40b458509cbc3c8c1cb0e05bbc9d5195a1f201b38fb4f910",
+      "byte_size": 161
+    },
+    {
+      "original_path": "examples/vasp_MgO_001_surf/poscar_make_surface.py",
+      "vendored_path": "examples/pyflamestk/vasp_MgO_001_surf/poscar_make_surface.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "c4ccd56ec6e489b56151d0c5f785c3326e4e35d5",
+      "sha256": "1f8907d3d1ac270c14e731995949f102bca04967cbbaad7d3f4ec4f17964bb7e",
+      "byte_size": 930
+    },
+    {
+      "original_path": "examples/vasp_MgO_333/lammps_make_MgO_001_s.py",
+      "vendored_path": "examples/pyflamestk/vasp_MgO_333/lammps_make_MgO_001_s.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "afab20bbd09307757ff041151e6e403f3dd31f5a",
+      "sha256": "5663f58f741bad9aec19dcbc36d4d051ebb17c7c95384a68d309e5912a53d212",
+      "byte_size": 516
+    },
+    {
+      "original_path": "examples/vasp_MgO_333/lammps_make_MgO_111.py",
+      "vendored_path": "examples/pyflamestk/vasp_MgO_333/lammps_make_MgO_111.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "57b47375959a4978ea5efd214415d28f87600c33",
+      "sha256": "105749cf2bc7165edf030339cbc2bd6e0a912e19cf5cb18799f96bea28328a64",
+      "byte_size": 514
+    },
+    {
+      "original_path": "examples/vasp_MgO_333/poscar_make_MgO_001_s.py",
+      "vendored_path": "examples/pyflamestk/vasp_MgO_333/poscar_make_MgO_001_s.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "0b227b5f41687a6c231eb1ad8a66149707b3fabd",
+      "sha256": "db798d48a91c0d63e59cfc08c9f5c285aeb9ad1e495e960b286f9018684d297f",
+      "byte_size": 1128
+    },
+    {
+      "original_path": "examples/vasp_MgO_333/poscar_make_MgO_333.py",
+      "vendored_path": "examples/pyflamestk/vasp_MgO_333/poscar_make_MgO_333.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "3943a5a3b152840a4a75cac3f9c45fd46e3b8e4c",
+      "sha256": "e58ccca5138a4bdce7e4399f580a8d4ce45d3f3d7f168b8c60320edf48869d4c",
+      "byte_size": 1030
+    },
+    {
+      "original_path": "examples/vasp_MgO_333/poscar_make_MgO_333_fr_a.py",
+      "vendored_path": "examples/pyflamestk/vasp_MgO_333/poscar_make_MgO_333_fr_a.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "1852c37c1772f04ffe52967bf4a6a2196454bcc1",
+      "sha256": "ea9f88cc7360457d1c627ab01d3ecacd0f9bd0baae1a79b0aa70daf5d0b70c95",
+      "byte_size": 1701
+    },
+    {
+      "original_path": "examples/vasp_MgO_333/poscar_make_MgO_333_fr_c.py",
+      "vendored_path": "examples/pyflamestk/vasp_MgO_333/poscar_make_MgO_333_fr_c.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "849d6bd41d9ca3b25953455cf4e6aa848272de36",
+      "sha256": "739ba05108aa310466ee66bdab89bc0a93a6e2998ab6f946cd9df074688d49fb",
+      "byte_size": 1700
+    },
+    {
+      "original_path": "examples/vasp_MgO_333/poscar_make_MgO_333_sch.py",
+      "vendored_path": "examples/pyflamestk/vasp_MgO_333/poscar_make_MgO_333_sch.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "80b16076384e3bbf8465798e2cc1ca399bd5dd25",
+      "sha256": "f6527f81ee99f611744a0d69c50b729f2bdc409bcdec1bc94e03cab48d530d86",
+      "byte_size": 2134
+    },
+    {
+      "original_path": "examples/vasp_MgO_333/poscar_make_sc.py",
+      "vendored_path": "examples/pyflamestk/vasp_MgO_333/poscar_make_sc.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "2b4a48dd9a276c54f32d66fecf6aef0b6b059ea4",
+      "sha256": "80a43f040a34246a4352a23b4ca6226f0b4e1dd41cdb9e1f13edf994702dbb18",
+      "byte_size": 3321
+    },
+    {
+      "original_path": "examples/vasp_kpoints_convergence/kpoint_convergence.py",
+      "vendored_path": "examples/pyflamestk/vasp_kpoints_convergence/kpoint_convergence.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "ad737d860efafb06b4e79eebc3e0c24444eafbf7",
+      "sha256": "b587675d3f655d9b14d66469ce26ce3f32d82823e0110516de667eda4dde3592",
+      "byte_size": 3701
+    },
+    {
+      "original_path": "examples/vasp_kpoints_convergence/runjob",
+      "vendored_path": "examples/pyflamestk/vasp_kpoints_convergence/runjob",
+      "code_kind": "script-without-extension",
+      "git_mode": "100644",
+      "git_blob_oid": "03f7481530c3d0401e7374262cae91d7aa9db1a0",
+      "sha256": "6cde9eb3521a48ca569585906a26b7ebcd08f547b735b2dc370740c64c209753",
+      "byte_size": 390
+    },
+    {
+      "original_path": "examples/vasp_poscar_unit_2_lammps/poscar2lammps.py",
+      "vendored_path": "examples/pyflamestk/vasp_poscar_unit_2_lammps/poscar2lammps.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "d18de601b9dbf02b45564a5e8adadf4b8ebf123b",
+      "sha256": "da4ba4845061af6e5138377bf89e62f45ece83760d4e224ec6d045d28510d01d",
+      "byte_size": 379
+    },
+    {
+      "original_path": "examples/vasp_poscar_unit_2_lammps/poscar_make_sc.py",
+      "vendored_path": "examples/pyflamestk/vasp_poscar_unit_2_lammps/poscar_make_sc.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "afa9a0f7e1510548c237f5a6cdae51c301278823",
+      "sha256": "e1ec0c161288267a8bca2cf723d2d84f38b38a07bffa9b8f337e8d7c2892cb31",
+      "byte_size": 369
+    },
+    {
+      "original_path": "examples/vasp_poscar_unit_2_supercell/poscar_make_sc.py",
+      "vendored_path": "examples/pyflamestk/vasp_poscar_unit_2_supercell/poscar_make_sc.py",
+      "code_kind": "python",
+      "git_mode": "100644",
+      "git_blob_oid": "57c34808db089de3443941baefd03935f19f8147",
+      "sha256": "e7fae85e65b7f3f06b6c9cc0788ec89be0db89453181ec844e559f5af68fe58f",
+      "byte_size": 304
+    }
+  ]
+}

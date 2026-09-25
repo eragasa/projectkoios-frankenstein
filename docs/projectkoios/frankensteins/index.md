@@ -30,6 +30,15 @@ from that owning module rather than re-exported by the package facade.
 - [`mathematics`](mathematics/index.md) owns safe scalar-model contracts.
 - [`__main__`](__main__/index.md) implements the command-line adapter.
 
+## Target architecture
+
+The [desired architecture](../../architecture/index.md) defines future modules
+for multi-objective optimization, potential optimization, QOI evaluation,
+simulation execution, reusable CPN fragments and visualization targeted for
+`projectkoios-cpn`, `projectkoios-workflow` orchestration adapters, and
+historical adapters. Those documents
+separate target design from the currently implemented package.
+
 ## Safety boundary
 
 The package never grants calculator execution authority. It does not select

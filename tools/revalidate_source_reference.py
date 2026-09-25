@@ -68,6 +68,16 @@ def _git_text(checkout: Path, *arguments: str) -> str:
     return _run_git(checkout, *arguments).decode("utf-8").strip()
 
 
+def _repository_root(start: Path) -> Path:
+    resolved = start.resolve()
+    for candidate in (resolved, *resolved.parents):
+        if (candidate / "pyproject.toml").is_file() and (
+            candidate / "sources"
+        ).is_dir():
+            return candidate
+    raise RevalidationError(f"could not locate repository root from {start}")
+
+
 def _normalize_repository_url(url: str) -> str:
     normalized = url.strip().rstrip("/")
     if normalized.startswith("git@github.com:"):
@@ -112,6 +122,7 @@ def _identity_table(
     if not isinstance(selection, dict):
         raise RevalidationError("selection must be a TOML table")
 
+    result: dict[str, tuple[str, int]] = {}
     identity_table_path = selection.get("identity_table")
     if identity_table_path is not None:
         relative_path = _safe_relative_path(
@@ -124,7 +135,6 @@ def _identity_table(
         literal = _literal_assignment(table_path, "SOURCE_FILES")
         if not isinstance(literal, dict):
             raise RevalidationError("SOURCE_FILES must be a dictionary literal")
-        result: dict[str, tuple[str, int]] = {}
         for raw_path, raw_identity in literal.items():
             source_path = _safe_relative_path(raw_path, "SOURCE_FILES path")
             if not isinstance(raw_identity, tuple) or len(raw_identity) != 2:
@@ -134,18 +144,84 @@ def _identity_table(
             digest = _text(raw_identity[0], f"SOURCE_FILES[{source_path!r}] sha256")
             size = _integer(raw_identity[1], f"SOURCE_FILES[{source_path!r}] size")
             result[source_path] = (digest, size)
-        return result
+    else:
+        source_path_value = selection.get("source_path")
+        if source_path_value is not None:
+            source_path = _safe_relative_path(
+                source_path_value,
+                "selection.source_path",
+            )
+            digest = _text(selection.get("source_sha256"), "selection.source_sha256")
+            size = _integer(
+                selection.get("source_byte_size"),
+                "selection.source_byte_size",
+            )
+            result[source_path] = (digest, size)
 
-    source_path_value = selection.get("source_path")
-    if source_path_value is None:
+    additional_files = selection.get("additional_files", [])
+    if not isinstance(additional_files, list):
+        raise RevalidationError("selection.additional_files must be an array of tables")
+    for index, item in enumerate(additional_files):
+        field = f"selection.additional_files[{index}]"
+        if not isinstance(item, dict):
+            raise RevalidationError(f"{field} must be a table")
+        source_path = _safe_relative_path(item.get("path"), f"{field}.path")
+        if source_path in result:
+            raise RevalidationError(
+                f"selected source path is duplicated: {source_path}"
+            )
+        digest = _text(item.get("sha256"), f"{field}.sha256")
+        size = _integer(item.get("byte_size"), f"{field}.byte_size")
+        result[source_path] = (digest, size)
+    return result
+
+
+def _example_tree_table(
+    repository_root: Path,
+    source_reference: dict[str, Any],
+) -> dict[str, str]:
+    selection = source_reference.get("selection", {})
+    if not isinstance(selection, dict):
+        raise RevalidationError("selection must be a TOML table")
+    inline_table = selection.get("example_trees")
+    table_value = selection.get("example_tree_table")
+    if inline_table is not None and table_value is not None:
+        raise RevalidationError(
+            "selection must not define both example_trees and example_tree_table"
+        )
+
+    if inline_table is not None:
+        if not isinstance(inline_table, dict):
+            raise RevalidationError("selection.example_trees must be a table")
+        raw_table = inline_table
+        field = "selection.example_trees"
+    elif table_value is not None:
+        relative_path = _safe_relative_path(
+            table_value,
+            "selection.example_tree_table",
+        )
+        assignment = _text(
+            selection.get("example_tree_assignment"),
+            "selection.example_tree_assignment",
+        )
+        table_path = repository_root / relative_path
+        if not table_path.is_file():
+            raise RevalidationError(
+                f"example tree table does not exist: {relative_path}"
+            )
+        literal = _literal_assignment(table_path, assignment)
+        if not isinstance(literal, dict):
+            raise RevalidationError(f"{assignment} must be a dictionary literal")
+        raw_table = literal
+        field = assignment
+    else:
         return {}
-    source_path = _safe_relative_path(
-        source_path_value,
-        "selection.source_path",
-    )
-    digest = _text(selection.get("source_sha256"), "selection.source_sha256")
-    size = _integer(selection.get("source_byte_size"), "selection.source_byte_size")
-    return {source_path: (digest, size)}
+
+    result: dict[str, str] = {}
+    for raw_path, raw_tree in raw_table.items():
+        path = _safe_relative_path(raw_path, f"{field} path")
+        result[path] = _text(raw_tree, f"{field}[{path!r}]")
+    return result
 
 
 def _file_report(
@@ -196,6 +272,7 @@ def build_report(
         "license_sha256",
     )
     selected_identities = _identity_table(repository_root, reference)
+    example_tree_identities = _example_tree_table(repository_root, reference)
 
     checkout = checkout.resolve()
     if not checkout.is_dir():
@@ -240,6 +317,24 @@ def build_report(
     selected_files_match = all(
         bool(item["matches_declared_identity"]) for item in selected_files
     )
+    example_trees = []
+    for path, declared_example_tree in sorted(example_tree_identities.items()):
+        observed_example_tree = _git_text(
+            checkout,
+            "rev-parse",
+            "--verify",
+            "--end-of-options",
+            f"{resolved_revision}:{path}",
+        )
+        example_trees.append(
+            {
+                "path": path,
+                "declared": declared_example_tree,
+                "observed": observed_example_tree,
+                "matches": observed_example_tree == declared_example_tree,
+            }
+        )
+    example_trees_match = all(bool(item["matches"]) for item in example_trees)
     revision_matches = resolved_revision == declared_revision
     tree_matches = observed_tree == declared_tree
     matches_declaration = (
@@ -248,6 +343,7 @@ def build_report(
         and tree_matches
         and license_matches
         and selected_files_match
+        and example_trees_match
     )
 
     disposition = (
@@ -283,6 +379,7 @@ def build_report(
             "matches": license_matches,
         },
         "selected_files": selected_files,
+        "example_trees": example_trees,
         "matches_declaration": matches_declaration,
     }
 
@@ -323,7 +420,7 @@ def parser() -> argparse.ArgumentParser:
 
 def main(arguments: list[str] | None = None) -> int:
     options = parser().parse_args(arguments)
-    repository_root = Path(__file__).resolve().parents[1]
+    repository_root = _repository_root(Path(__file__))
     try:
         report = build_report(
             repository_root=repository_root,

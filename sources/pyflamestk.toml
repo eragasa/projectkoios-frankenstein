@@ -9,3 +9,22 @@ license_sha256 = "8e8ff7b5f5de2f4f1b48a18108d6268769739d622cfb671078565ab56bef28
 [selection]
 example_root = "examples/lmps_MgO_serial_uniform"
 identity_table = "src/projectkoios/frankensteins/engines/pyflamestk_lmps_mgo_serial_uniform/constants.py"
+
+[selection.example_trees]
+"examples/MgO_buckingham/lmps_MgO_mpi_iterate" = "92b7fe8aaceb5a2ed1d376463aedb5ab0124dd5c"
+"examples/MgO_buckingham/lmps_MgO_mpi_kde" = "a08b80334a12cf3ceb678cbc6d33994972736d23"
+"examples/MgO_buckingham/lmps_MgO_mpi_uniform" = "502dfc0fd8261a5f66b4bfce9a7eb2f8caaf1361"
+"examples/MgO_buckingham/lmps_MgO_pareto_iterate" = "d5c9064ed72e30cf393dc5adad2462fa9ed81e5a"
+"examples/MgO_buckingham/lmps_MgO_serial_iterate" = "07bab44335d5e446511ec16bc5d97dc9450a554e"
+"examples/MgO_buckingham/lmps_MgO_serial_single" = "c8e13e093f13c96fb5173af983cd7ff135dd9d61"
+"examples/MgO_buckingham/lmps_MgO_serial_uniform" = "622aba661c91e4bea0051395ce2a386f30f56dd0"
+"examples/Si_tersoff/lmps_MgO_pareto_iterate" = "d5c9064ed72e30cf393dc5adad2462fa9ed81e5a"
+"examples/Si_tersoff/lmps_MgO_serial_iterate" = "6ddcbbfdca6c7110bddd16c1d1fa80f326bf2035"
+"examples/Si_tersoff/lmps_Si_serial_pareto" = "a9836ccd2bee7f67ca8223ce26117397ea9361f5"
+"examples/lmps_MgO_mpi_uniform" = "502dfc0fd8261a5f66b4bfce9a7eb2f8caaf1361"
+"examples/lmps_MgO_pareto_iterate" = "f5804ea04f1a00be400cbe3a3f01dfd412e25172"
+"examples/lmps_MgO_regression_tests" = "47f1ef4aeee74acd79475d756b7ffc1aeb98675d"
+"examples/lmps_MgO_sample_file" = "900a216c221ecf4c54bb390d8eb03b48e07e54b9"
+"examples/lmps_MgO_serial_kde" = "9f5a2a5d6bd6a4b2840238a96d90d92468a21e25"
+"examples/lmps_MgO_serial_uniform" = "428adc8f8dd84381e87e34256f7c34e8570ab878"
+"examples/lmps_MgO_surface" = "eab477e810716ccfb13a6021be57c6ffc50f0627"

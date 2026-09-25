@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "component": "pymatmc2",
+  "repository": "https://github.com/eragasa/pymatmc2",
+  "revision": "9d31d7fd4f8902f17864fbf391059101a3f5afda",
+  "tree": "7773f886eaecfe919abf68d9e4f990fb398a82be",
+  "upstream_examples_root": "examples",
+  "selection": {
+    "scope": "Code files committed beneath the upstream examples/ tree.",
+    "included": [
+      "Python files (.py and .pyw)",
+      "shell files (.sh, .bash, and .zsh)",
+      "scheduler shell files (.pbs, .slurm, and .sl)",
+      "Jupyter notebooks (.ipynb)",
+      "extensionless files with a Python/shell shebang or an unambiguous Python opening statement"
+    ],
+    "excluded": [
+      "source-package files outside upstream examples/",
+      "simulation inputs, configuration, data, plots, logs, and generated outputs",
+      "AppleDouble resource-fork files"
+    ]
+  },
+  "local_modifications": "None. Vendored code bytes and Git executable modes are preserved.",
+  "license": {
+    "original_path": "LICENSE",
+    "vendored_path": "examples/pymatmc2/LICENSE",
+    "git_blob_oid": "c9ccc67e92632455565c4df5bef0c4fd340d072a",
+    "sha256": "2080cab2d2ec5b2a17322121dd1b8ce00d44da7bdfe3e6e01d45316971ca65bd",
+    "byte_size": 1073
+  },
+  "files": []
+}

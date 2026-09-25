@@ -6,16 +6,22 @@ class documentation lives at the same nested path as its implementation.
 ## Scope
 
 [`projectkoios.frankensteins`](projectkoios/frankensteins/index.md) contains
-provenance-bound, execution-disabled reconstructions. Exact upstream repository
-references live in the top-level `sources/` directory; upstream source itself is
-never included in this repository or its distributions.
+provenance-bound, execution-disabled maintained reconstructions. Exact upstream
+repository references live in the top-level `sources/` directory. Bounded source
+selections may be retained under `examples/` with file-level provenance, but are
+excluded from distributions.
 
 No source reference authorizes calculator, scheduler, shell, or arbitrary Python
 execution. Reconstruction does not imply numerical verification or scientific
 validation.
 
-## Sources, development, and security
+## Architecture, sources, development, and security
 
+- [`architecture/index.md`](architecture/index.md) defines the target
+  multi-objective potential-optimization architecture and records architectural
+  decisions separately from implemented behavior.
+- [`plans/index.md`](plans/index.md) records bounded implementation sequences and
+  acceptance gates without claiming completion.
 - [`sources/index.md`](sources/index.md) records exact external pins, current
   release status, local-checkout conventions, and pin-update requirements.
 - [`development/index.md`](development/index.md) defines setup, verification,

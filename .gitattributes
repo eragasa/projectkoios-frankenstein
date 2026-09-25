@@ -1,0 +1,10 @@
+# Preserve provenance-bound upstream bytes without line-ending normalization.
+examples/pyflamestk/** -text -whitespace
+examples/pypospack/** -text -whitespace
+examples/pypospack/MgO/buck/PROVENANCE.json text whitespace=blank-at-eol,blank-at-eof,space-before-tab
+examples/pypospack/MgO/buck/README.md text whitespace=blank-at-eol,blank-at-eof,space-before-tab
+examples/pypospack/MgO/buck/VENDORING.toml text whitespace=blank-at-eol,blank-at-eof,space-before-tab
+examples/pypospack/MgO/buck/configuration.py text whitespace=blank-at-eol,blank-at-eof,space-before-tab
+examples/pypospack/MgO/buck/mc_iterative_sampler.py text whitespace=blank-at-eol,blank-at-eof,space-before-tab
+examples/pypospack/MgO/buck/vendor/pypospack/__init__.py text whitespace=blank-at-eol,blank-at-eof,space-before-tab
+examples/pymatmc2/** -text -whitespace

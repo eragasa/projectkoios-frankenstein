@@ -28,6 +28,26 @@ export PYPOSPACK_CHECKOUT="$PWD/.upstreams/pypospack"
 The pymatmc2 declaration is currently reference-only, so CI does not check out
 or inspect pymatmc2 until a bounded Frankenstein engine is extracted.
 
+## Reproducible vendoring
+
+A checked-in recipe maps authorized source paths to bounded destinations. Check
+or synchronize the MgO Buckingham selection with:
+
+```bash
+python3.14 tools/vendor_source_selection.py \
+  examples/pypospack/MgO/buck/VENDORING.toml \
+  --checkout "$PYPOSPACK_CHECKOUT" --check
+
+python3.14 tools/vendor_source_selection.py \
+  examples/pypospack/MgO/buck/VENDORING.toml \
+  --checkout "$PYPOSPACK_CHECKOUT" --sync
+```
+
+The tool verifies repository, commit, tree, selected identities, and destination
+containment. It reads committed Git blobs rather than the checkout worktree and
+regenerates the representation's file-level provenance. `--check` is read-only.
+A recipe is not authorization to alter a source pin.
+
 ## Verification
 
 ```bash
@@ -49,8 +69,13 @@ or singular `projectkoios.frankensteins.integration` namespace.
 ## Documentation
 
 Every maintained module and top-level class has a mirrored nested `index.md`
-under `docs/`. `tests/test_documentation_layout.py` enforces page existence,
-public-symbol coverage, and resolving internal links.
+under `docs/`. `tests/repository/documentation/test__documentation_layout.py`
+enforces page existence, public-symbol coverage, and resolving internal links.
+
+Every target architectural module separately provides `index.md` plus
+`architecture/`, `implementation/`, `specifications/`, and `testing/` views.
+Architecture views describe the problem without class or package design;
+implementation views own Mermaid class and dependency diagrams.
 
 CI performs the complete verification sequence and checks both upstream
 repositories out at exact commits solely for conformance tests.

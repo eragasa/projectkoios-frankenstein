@@ -13,4 +13,6 @@ Its facade exports `ENGINE_NAME`, `EXAMPLE_ROOT`, `SOURCE_REPOSITORY_URL`,
 - [`mathematical_models`](mathematical_models/index.md) owns closed arithmetic
   reconstruction.
 
-The package never fetches, imports, or executes the referenced repository.
+The package never fetches, imports, or executes the referenced repository. Its
+`FrankensteinRecipe` and mathematical-model catalog are the initial maintained
+inputs to the [PyFlamestk MgO worked-example architecture](../../../../architecture/pyflamestk-mgo-examples/index.md).
