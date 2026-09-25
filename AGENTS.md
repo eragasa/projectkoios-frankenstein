@@ -4,6 +4,27 @@ This repository owns provenance-bound, execution-disabled reconstructions of
 externally hosted scientific workflows. It does not vendor, import, execute,
 discover, clone, or download upstream source repositories at package runtime.
 
+## Adapter and incubation architecture
+
+- `Adapter` is the nominal containing role for maintained boundaries.
+- A `Binding` adapts an imported or deliberately vendored code dependency.
+- An `Integration` adapts an external application or service.
+- Use base classes for shared nominal "is-a" relationships and composition for
+  independent "has-a" relationships. An integration may contain a binding; it
+  must not inherit from that binding.
+- Do not invent a generic `adapt()` method from adapter membership alone.
+- If another shared base class appears necessary, freeze that implementation
+  work and hold an explicit architecture discussion before adding it.
+- Treat `projectkoios.frankensteins` as a mirrored pick-and-pull incubation
+  overlay. Target migration removes only the `frankensteins` namespace segment;
+  it must not require class renaming or inheritance redesign.
+- Keep shared namespace package levels free of broad implementation re-exports.
+  Only provider leaves, deliberate facades, or composition roots may expose a
+  curated API.
+- Name repositories for capabilities, such as `projectkoios-lammps` or
+  `projectkoios-github`; express binding and integration roles in Python
+  namespaces instead of repository names.
+
 ## Source boundaries
 
 - Use only operator-provided local checkouts for source inspection and

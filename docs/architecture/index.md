@@ -10,7 +10,8 @@ often combines:
 1. a scientific optimization problem;
 2. a multi-objective optimization algorithm;
 3. calculator execution and artifact management; and
-4. historical adapters used to establish reconstruction conformance.
+4. adapters divided into code-dependency bindings and external-system
+   integrations.
 
 ```mermaid
 flowchart LR
@@ -22,7 +23,7 @@ flowchart LR
     W --> P
     W --> S
     V[CPN visualization] --> W
-    H[Historical PyPosPack adapter] --> O
+    H[Historical PyPosPack binding] --> O
     H --> P
     H --> Q
 ```
@@ -48,6 +49,7 @@ Every module follows the
 [module documentation standard](module-documentation.md): overview,
 architecture, implementation, specifications, and testing.
 
+- [Adapters, bindings, and integrations](adapters/index.md)
 - [Multi-objective optimization](multi-objective-optimization/index.md)
 - [Potential optimization](potential-optimization/index.md)
 - [QOI evaluation](qoi-evaluation/index.md)
@@ -72,6 +74,9 @@ architecture, implementation, specifications, and testing.
 - [Decision 0004](decisions/0004-pyflamestk-examples-use-frankenstein-recipes.md)
   requires PyFlamestk MgO scenarios to enter through the existing
   `FrankensteinRecipe` reconstruction boundary.
+- [Decision 0005](decisions/0005-adapters-contain-bindings-and-integrations.md)
+  defines bindings and integrations as distinct adapter roles and establishes
+  mirrored pick-and-pull namespaces.
 
 ## Status vocabulary
 
