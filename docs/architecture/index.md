@@ -57,6 +57,7 @@ architecture, implementation, specifications, and testing.
 - [Potential optimization](potential-optimization/index.md)
 - [QOI evaluation](qoi-evaluation/index.md)
 - [Simulation execution](simulation-execution/index.md)
+- [Calculator-selectable structural relaxation](calculator-selectable-relaxation/index.md)
 - [Reusable CPN composition](cpn-composition/index.md)
 - [Colored-Petri-net workflow](cpn-workflow/index.md)
 - [Colored-Petri-net visualization](cpn-visualization/index.md)

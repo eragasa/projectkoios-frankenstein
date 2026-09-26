@@ -7,6 +7,9 @@ import re
 from dataclasses import dataclass
 from enum import StrEnum
 
+from projectkoios.frankensteins.applications.calculator import (
+    CalculatorIntegrationId as CalculatorIntegrationId,
+)
 from projectkoios.frankensteins.simulations.dft.base import PwDftSimulation
 
 _IDENTIFIER = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
@@ -35,16 +38,6 @@ class PwDftScfWorkflowOutcome(PwDftScfObject):
     """Base nominal identity for every terminal SCF workflow outcome."""
 
     __slots__ = ()
-
-
-@dataclass(frozen=True, slots=True)
-class CalculatorIntegrationId(PwDftScfObject):
-    """Select one source-controlled calculator integration by stable identity."""
-
-    value: str
-
-    def __post_init__(self) -> None:
-        _validate_identifier(self.value, "integration identifier")
 
 
 @dataclass(frozen=True, slots=True)

@@ -2,7 +2,7 @@
 
 **Task:** `qe-structural-relaxation-integration`
 
-**Status:** Proposed; calculation policy is not accepted
+**Status:** Active; card-based input projection is maintained, output evidence and scientific policy remain open
 
 ## Objective
 
@@ -10,7 +10,7 @@ Add the minimum QE-native projection and output analysis required by the accepte
 
 ## Subtasks
 
-- [Input projection](subtasks/input-projection/index.md)
+- [Input projection](subtasks/input-projection/index.md) — closed
 - [Output analysis](subtasks/output-analysis/index.md)
 - [Relaxed structure](subtasks/relaxed-structure/index.md)
 - [Replay](subtasks/replay/index.md)
@@ -33,6 +33,13 @@ Add the minimum QE-native projection and output analysis required by the accepte
 - `&CONTROL`, `&IONS`, and `&CELL` fields are explicit rather than hidden defaults.
 - Final structure extraction fails closed on incomplete or malformed output.
 - Native units and raw output identity are retained.
+
+## Current implementation evidence
+
+- `src/projectkoios/frankensteins/integrations/quantumespresso/pw_dft_relaxation/`
+- `tests/projectkoios/frankensteins/integrations/quantumespresso/pw_dft_relaxation/`
+
+The maintained projection uses typed QE namelist and data-card declarations. Test values exercise the boundary and are not an accepted bulk-silicon relaxation policy.
 
 ## Non-goals
 

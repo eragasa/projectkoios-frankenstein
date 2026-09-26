@@ -10,8 +10,11 @@ Current disposition:
 
 Stable ownership hierarchy:
 
+- [Calculator-neutral plane-wave DFT workflow tasks](workflow/dft/index.md)
 - [Quantum ESPRESSO integration tasks](qe/index.md)
 - [Quantum ESPRESSO workflow tasks](workflow/qe/index.md)
+- [VASP integration tasks](vasp/index.md)
+- [ABINIT integration tasks](abinit/index.md)
 - [Wannier90 integration tasks](wannier/index.md)
 - [Wannier90 workflow tasks](workflow/wannier/index.md)
 - [Bulk composed workflows](workflow/bulk/index.md)

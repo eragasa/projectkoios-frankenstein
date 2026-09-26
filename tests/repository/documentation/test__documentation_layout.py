@@ -12,6 +12,7 @@ DOCUMENTATION_ROOT = REPOSITORY_ROOT / "docs"
 _MARKDOWN_LINK = re.compile(r"(?<!!)\[[^]]+\]\(([^)]+)\)")
 ARCHITECTURE_MODULES = (
     "adapters",
+    "calculator-selectable-relaxation",
     "cpn-composition",
     "cpn-visualization",
     "cpn-workflow",
