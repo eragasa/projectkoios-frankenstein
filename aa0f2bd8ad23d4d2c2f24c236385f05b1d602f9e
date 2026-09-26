@@ -1,0 +1,9 @@
+LAMMPS maintenance note
+
+The removal of orphaned LAMMPS tests and mirrored documentation in this commit is not a decision to abandon LAMMPS support. It keeps the verified development branch aligned with the currently maintained implementation while LAMMPS reconstruction is deferred for deliberate repair.
+
+Recovery provenance:
+- Last retained LAMMPS implementation: commit bfd4588, under src/projectkoios/frankensteins/integrations/lammps/.
+- Latest pre-cleanup LAMMPS tests and documentation: commit 2564a3e.
+
+Recommended continuation: create a dedicated development branch from aa0f2bd8, restore the selected implementation from bfd4588 and the tests/documentation from 2564a3e, then modernize and verify them before merging. Historical source execution remains unauthorized; use the repository's pinned-source and provenance controls.
