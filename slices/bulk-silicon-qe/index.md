@@ -2,7 +2,7 @@
 
 These slices implement the active [bulk QE-to-Wannier90 plan](../../docs/plans/silicon-bulk-qe-wannier90.md).
 
-1. [SCF convergence](scf-convergence/index.md)
+1. [SCF convergence](scf-convergence/index.md) — complete
 2. [Structural relaxation](structural-relaxation/index.md)
 3. [Production SCF and NSCF](production-scf-nscf/index.md)
 4. [QE-to-Wannier90 interface](qe-wannier-interface/index.md)

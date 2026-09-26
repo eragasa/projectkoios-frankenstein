@@ -2,7 +2,7 @@
 
 **Task:** `workflow-qe-scf-convergence`
 
-**Status:** Active evidence repair; workflow control is maintained
+**Status:** Closed — maintained control is bound to retained QE evidence
 
 ## Objective
 
@@ -29,6 +29,11 @@ Compose `dft_pw_scf` children into bounded k-point, cutoff, and joint-confirmati
 - Adaptive extension adds tokens and child requests without changing topology.
 - Operational retry remains separate from scientific extension.
 - Accepted settings cite retained native observations and policy identity.
+
+## Implementation evidence
+
+- [Retained convergence replay](../../../../examples/projectkoios/Si/bulk/qe_wannier90/scf_convergence/README.md)
+- [Replay tests](../../../../tests/examples/projectkoios/Si/bulk/qe_wannier90/scf_convergence/test__retained_convergence_evidence.py)
 
 ## Non-goals
 

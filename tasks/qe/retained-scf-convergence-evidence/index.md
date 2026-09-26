@@ -2,7 +2,7 @@
 
 **Task:** `qe-retained-scf-convergence-evidence`
 
-**Status:** Active
+**Status:** Closed — complete retained grid replays under the declared policy
 
 ## Objective
 
@@ -34,6 +34,13 @@ Replace demonstration-only convergence inputs with independently retained QE obs
 - Synthetic control fixtures are not presented as scientific evidence.
 - Every normalized energy cites native output bytes.
 - Evidence declares that total-energy convergence does not establish band or Wannier convergence.
+
+## Implementation evidence
+
+- [Retained example and replay](../../../examples/projectkoios/Si/bulk/qe_wannier90/scf_convergence/README.md)
+- [Closed evidence schema](../../../examples/projectkoios/Si/bulk/qe_wannier90/scf_convergence/evidence/schema.json)
+- [Evidence manifest](../../../examples/projectkoios/Si/bulk/qe_wannier90/scf_convergence/evidence/manifest.json)
+- [Replay tests](../../../tests/examples/projectkoios/Si/bulk/qe_wannier90/scf_convergence/test__retained_convergence_evidence.py)
 
 ## Non-goals
 

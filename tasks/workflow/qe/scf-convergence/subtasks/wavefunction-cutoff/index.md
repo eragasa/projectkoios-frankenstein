@@ -2,7 +2,7 @@
 
 **Task:** `workflow-qe-cutoff-convergence`
 
-**Status:** Maintained control path; retained evidence requires repair
+**Status:** Closed — maintained control replayed against retained QE evidence
 
 ## Objective
 
