@@ -1,6 +1,6 @@
 # Silicon SCF cross-calculator colored-Petri-net workflow
 
-**Status:** Proposed application-specific CPN fragment; runtime binding is blocked on accepted `projectkoios-cpn` and `projectkoios-workflow` contracts
+**Status:** Deferred; runtime binding is blocked on accepted `projectkoios-cpn` and `projectkoios-workflow` contracts
 
 ## Purpose
 

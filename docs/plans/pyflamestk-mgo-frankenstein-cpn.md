@@ -1,6 +1,6 @@
 # PyFlamestk MgO on the maintained Frankenstein and CPN architecture
 
-**Status:** Proposed implementation plan
+**Status:** Deferred; the LAMMPS reconstruction is preserved for deliberate repair
 
 **Primary initial scenario:** `examples/lmps_MgO_serial_uniform`
 
