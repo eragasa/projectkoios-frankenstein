@@ -5,10 +5,10 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from projectkoios.frankensteins.integrations import BaseExecutor
+from projectkoios.frankensteins.integrations import base as integration_base
 
 
-class _RecordingExecutor(BaseExecutor[str, tuple[str, Path]]):
+class _RecordingExecutor(integration_base.BaseExecutor[str, tuple[str, Path]]):
     @property
     def application_name(self) -> str:
         return "recording-application"
@@ -17,21 +17,21 @@ class _RecordingExecutor(BaseExecutor[str, tuple[str, Path]]):
         return request, workspace
 
 
-class _MissingExecute(BaseExecutor[str, str]):
+class _MissingExecute(integration_base.BaseExecutor[str, str]):
     @property
     def application_name(self) -> str:
         return "missing-execute"
 
 
 class BaseExecutorTest(unittest.TestCase):
-    def test_is_abstract_until_an_integration_supplies_execute(self) -> None:
-        self.assertTrue(inspect.isabstract(BaseExecutor))
+    def test__BaseExecutor__is_abstract_without_execute(self) -> None:
+        self.assertTrue(inspect.isabstract(integration_base.BaseExecutor))
         self.assertTrue(inspect.isabstract(_MissingExecute))
 
         with self.assertRaises(TypeError):
             _MissingExecute()  # type: ignore[abstract]
 
-    def test_defines_a_typed_application_and_workspace_boundary(self) -> None:
+    def test__BaseExecutor__defines_typed_workspace_boundary(self) -> None:
         executor = _RecordingExecutor()
         with tempfile.TemporaryDirectory() as directory:
             workspace = Path(directory)
@@ -41,9 +41,9 @@ class BaseExecutorTest(unittest.TestCase):
         self.assertEqual(executor.application_name, "recording-application")
         self.assertEqual(result, ("request", workspace))
 
-    def test_does_not_supply_process_execution_implicitly(self) -> None:
-        self.assertNotIn("subprocess", BaseExecutor.__dict__)
-        self.assertNotIn("executable", BaseExecutor.__dict__)
+    def test__BaseExecutor__does_not_supply_process_execution(self) -> None:
+        self.assertNotIn("subprocess", integration_base.BaseExecutor.__dict__)
+        self.assertNotIn("executable", integration_base.BaseExecutor.__dict__)
 
 
 if __name__ == "__main__":

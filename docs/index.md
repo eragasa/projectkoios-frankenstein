@@ -36,11 +36,11 @@ validation.
 
 - [`projectkoios`](projectkoios/index.md)
   - [`frankensteins`](projectkoios/frankensteins/index.md)
-    - [`core`](projectkoios/frankensteins/core/index.md)
-    - [`evidence`](projectkoios/frankensteins/evidence/index.md)
+    - [`applications`](projectkoios/frankensteins/applications/index.md)
     - [`engines`](projectkoios/frankensteins/engines/index.md)
     - [`integrations`](projectkoios/frankensteins/integrations/index.md)
     - [`mathematics`](projectkoios/frankensteins/mathematics/index.md)
+    - [`simulations`](projectkoios/frankensteins/simulations/index.md)
 
 ## Documentation rule
 

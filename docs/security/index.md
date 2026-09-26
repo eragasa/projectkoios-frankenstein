@@ -16,11 +16,12 @@ schedulers, shells, or arbitrary commands.
 
 ## Filesystem controls
 
-[`projectkoios.frankensteins.evidence`](../projectkoios/frankensteins/evidence/index.md)
-provides descriptor-based reads and directory inspection. Descendant paths are
-normalized and opened relative to a pinned root descriptor. Symbolic links,
-special files, oversized files, excessive file counts, and detectable concurrent
-mutation are rejected. Cryptographic identity checks bind all selected bytes.
+The maintained [source revalidation tool](../tools/revalidate-source-reference.md)
+requires an explicit checkout and verifies declared Git identities, selected-file
+hashes and sizes, example trees, and license evidence. Runtime calculator
+integrations separately bound retained artifact paths, reject unsafe path forms,
+and enforce configured byte limits. Neither boundary discovers or downloads an
+upstream repository.
 
 ## CI boundary
 

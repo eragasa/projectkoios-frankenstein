@@ -8,3 +8,4 @@ examples/pypospack/MgO/buck/configuration.py text whitespace=blank-at-eol,blank-
 examples/pypospack/MgO/buck/mc_iterative_sampler.py text whitespace=blank-at-eol,blank-at-eof,space-before-tab
 examples/pypospack/MgO/buck/vendor/pypospack/__init__.py text whitespace=blank-at-eol,blank-at-eof,space-before-tab
 examples/pymatmc2/** -text -whitespace
+vendor/** -text -whitespace

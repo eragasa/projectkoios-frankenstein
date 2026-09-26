@@ -5,6 +5,7 @@ import os
 import subprocess
 import tempfile
 import textwrap
+import tomllib
 import unittest
 from dataclasses import replace
 from pathlib import Path
@@ -169,8 +170,17 @@ class SourceRevalidationToolTest(unittest.TestCase):
         )
         result = SourceReferenceRevalidator().actionize(request)
 
+        declaration = tomllib.loads(
+            (REPOSITORY_ROOT / "sources/pypospack.toml").read_text(encoding="utf-8")
+        )
+        selection = declaration["selection"]
+        expected_selected_file_count = 1 + len(selection["additional_files"])
+
         self.assertTrue(result.matches_declaration)
-        self.assertEqual(len(result.selected_files), 21)
+        self.assertEqual(
+            len(result.selected_files),
+            expected_selected_file_count,
+        )
         self.assertEqual(len(result.example_trees), 31)
         self.assertTrue(all(item.matches for item in result.example_trees))
 

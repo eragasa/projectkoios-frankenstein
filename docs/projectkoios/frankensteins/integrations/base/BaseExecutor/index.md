@@ -17,5 +17,5 @@ and keep completion distinct from numerical verification and scientific
 validation.
 
 Importing or subclassing `BaseExecutor` does not itself authorize an external
-run. The current LAMMPS and VASP integration packages remain reconstruction-only
-until separately maintained executors and opt-in conformance tests are added.
+run. Concrete integrations must receive execution authority and local resources
+through their own explicit runtime boundary.

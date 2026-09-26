@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from projectkoios.frankensteins.engines.base import BaseEngine
+from projectkoios.frankensteins.engines import base as engine_base
 
 _ALLOWED_STATUSES = {"reconstructable", "blocked"}
 
@@ -47,8 +47,8 @@ SOURCE_EXAMPLE_TREES: dict[str, str] = {
 }
 
 
-@dataclass(frozen=True)
-class PyflamestkExampleEngineBinding(BaseEngine):
+@dataclass(frozen=True, slots=True)
+class PyflamestkExampleEngineBinding(engine_base.BaseEngine):
     """Immutable reconstruction disposition for one historical example engine."""
 
     status: str
@@ -56,7 +56,7 @@ class PyflamestkExampleEngineBinding(BaseEngine):
     content_alias_of: str | None = None
 
     def __post_init__(self) -> None:
-        super().__post_init__()
+        super(PyflamestkExampleEngineBinding, self).__post_init__()
         if SOURCE_EXAMPLE_TREES.get(self.example_root) != self.example_tree:
             raise ValueError("example_tree must match the source tree table")
         if self.status not in _ALLOWED_STATUSES:

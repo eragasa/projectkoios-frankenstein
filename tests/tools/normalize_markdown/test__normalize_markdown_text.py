@@ -19,20 +19,19 @@ class NormalizeMarkdownTextTest(unittest.TestCase):
         )
 
     def test_preserves_fenced_code_tables_and_hard_breaks(self) -> None:
-        source = """# Heading
-
-```mermaid
-flowchart LR
-    A --> B
-```
-
-| A | B |
-|---|---|
-| 1 | 2 |
-
-first line  
-second line
-"""
+        source = (
+            "# Heading\n\n"
+            "```mermaid\n"
+            "flowchart LR\n"
+            "    A --> B\n"
+            "```\n\n"
+            "| A | B |\n"
+            "|---|---|\n"
+            "| 1 | 2 |\n\n"
+            "first line"
+            "  \n"
+            "second line\n"
+        )
 
         self.assertEqual(normalize_markdown_text(source), source)
 

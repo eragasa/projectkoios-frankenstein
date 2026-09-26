@@ -3,15 +3,6 @@ from __future__ import annotations
 import tomllib
 import unittest
 
-from projectkoios.frankensteins.integrations.lammps.provenance import (
-    PYPOSPACK_LICENSE_PATH,
-    PYPOSPACK_LICENSE_SHA256,
-    PYPOSPACK_RELEASE_TAG,
-    PYPOSPACK_REPOSITORY_URL,
-    PYPOSPACK_REVISION,
-    PYPOSPACK_TREE,
-)
-
 from projectkoios.frankensteins.engines.pyflamestk_lmps_mgo_serial_uniform import (
     constants as pyflamestk,
 )
@@ -32,16 +23,28 @@ class SourceReferencesTest(unittest.TestCase):
             pyflamestk.SOURCE_LICENSE_SHA256,
         )
 
-    def test_pypospack_reference_matches_implementation_binding(self) -> None:
+    def test_pypospack_reference_preserves_the_accepted_pin(self) -> None:
         reference = tomllib.loads(
             (REPOSITORY_ROOT / "sources/pypospack.toml").read_text(encoding="utf-8")
         )
-        self.assertEqual(reference["repository"], PYPOSPACK_REPOSITORY_URL)
-        self.assertEqual(reference["release_tag"], PYPOSPACK_RELEASE_TAG)
-        self.assertEqual(reference["revision"], PYPOSPACK_REVISION)
-        self.assertEqual(reference["tree"], PYPOSPACK_TREE)
-        self.assertEqual(reference["license_path"], PYPOSPACK_LICENSE_PATH)
-        self.assertEqual(reference["license_sha256"], PYPOSPACK_LICENSE_SHA256)
+        self.assertEqual(
+            reference["repository"],
+            "https://github.com/eragasa/pypospack",
+        )
+        self.assertEqual(reference["release_tag"], "v0.1.0")
+        self.assertEqual(
+            reference["revision"],
+            "be453fa7191e55a0426f66e8b5b5b0b103c8b29d",
+        )
+        self.assertEqual(
+            reference["tree"],
+            "7ac9c9f255aa7731f39ce35a0e561fc113082a6f",
+        )
+        self.assertEqual(reference["license_path"], "LICENSE")
+        self.assertEqual(
+            reference["license_sha256"],
+            "05f25c4caf59b20bbcadbb1e3e1c33b154d273ef7daa7e7740bca8a0ed0f4c83",
+        )
 
     def test_pymatmc2_reference_is_pinned_without_an_engine_claim(self) -> None:
         reference = tomllib.loads(
