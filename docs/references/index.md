@@ -6,3 +6,4 @@ Git provenance or executable conformance evidence.
 
 - [Ragasa et al. (2019): multi-objective optimization of interatomic potentials](ragasa-2019-multi-objective-interatomic-potentials.md)
 - [`ksdft2effmass` bulk-silicon reduction target](ksdft2effmass-bulk-silicon-target.md)
+- [Quantum ESPRESSO plane-wave convergence authorities](qe-plane-wave-convergence.md)
