@@ -5,7 +5,7 @@ import unittest
 from projectkoios.frankensteins.integrations.vasp.calculation import (
     VaspCalculationProjection,
 )
-from projectkoios.frankensteins.io.vasp.incar import IncarFile
+from projectkoios.frankensteins.integrations.vasp.incar import IncarFile
 from projectkoios.frankensteins.simulations.dft.settings import AlignmentKind
 
 

@@ -6,7 +6,7 @@ The script requires an explicit operation and one or more files or directories:
 
 ```bash
 .venv/bin/python tools/normalize_markdown.py --check docs
-.venv/bin/python tools/normalize_markdown.py --write docs/projectkoios/frankensteins/io/vasp/incar
+.venv/bin/python tools/normalize_markdown.py --write docs/projectkoios/frankensteins/integrations/vasp/incar
 ```
 
 Directories are scanned recursively for `.md` files. `--check` performs no writes and returns status 1 when normalization is needed. `--write` uses an atomic replacement in the file's directory while preserving its permission mode. Invalid paths, symbolic links, mixed line endings, invalid UTF-8, and files larger than 10 MB stop the operation with status 2. The operation does not follow links, access the network, inspect hidden configuration, or execute rendered content.

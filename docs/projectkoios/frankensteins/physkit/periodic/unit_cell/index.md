@@ -1,5 +1,7 @@
 # `projectkoios.frankensteins.physkit.periodic.unit_cell`
 
-Minimal calculator-neutral periodic structure composition. `UnitCell` contains one dimensionless PhysKit `DirectLattice3D` matrix `A`, one explicit physical `ScalarQuantity` lattice parameter, and one `AtomicBasis`. The physical cell matrix is `H = lattice_parameter × A`. `AtomicBasis` contains ordered `Atom` values. Each atom contains its chemical symbol and an explicitly unitless PhysKit `VectorQuantity` of fractional coordinates.
+Calculator-neutral periodic structure composition with explicit column-vector semantics. `UnitCell` owns `A = [a1 a2 a3]`, physical `H = lattice_parameter A = [h1 h2 h3]`, and an ordered `AtomicBasis`.
 
-This PhysKit-shaped overlay module is the initial extraction candidate for PhysKit. POSCAR and Quantum ESPRESSO structure adapters should consume this object rather than owning independent structures. Calculator-specific weights, magnetic moments, constraints, and pseudopotential selections are deliberately absent until their ownership is specified.
+`ConventionalUnitCell` and `PrimitiveUnitCell` are nominal subtypes; the distinction is not inferred from geometry or atom count. `UnitCellJsonSerializer` and `UnitCellJsonDeserializer` preserve that declared subtype through reviewed JSON without dynamic imports.
+
+This PhysKit-shaped overlay module is an extraction candidate for PhysKit. Calculator-specific weights, magnetic moments, constraints, and pseudopotential selections remain absent.

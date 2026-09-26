@@ -78,6 +78,30 @@ class QePwInputFileAssemblerTest(unittest.TestCase):
             ),
         )
 
+    def test_writes_the_columns_of_H_as_cell_parameter_vectors(self) -> None:
+        input_file = QePwInputFileAssembler().assemble(
+            _skewed_simulation(),
+            groups=(),
+            cell_parameters_unit="angstrom",
+            atomic_positions_unit="crystal",
+            coordinate_precision=2,
+            card_order=("CELL_PARAMETERS", "ATOMIC_POSITIONS"),
+        )
+
+        cell_parameters = next(
+            group
+            for group in input_file.groups
+            if group.tag.startswith("CELL_PARAMETERS")
+        )
+        self.assertEqual(
+            cell_parameters.lines,
+            (
+                "2.00 0.00 0.00",
+                "0.40 4.00 0.00",
+                "0.60 0.80 6.00",
+            ),
+        )
+
     def test_rejects_caller_supplied_structure_cards(self) -> None:
         with self.assertRaisesRegex(ValueError, "must not duplicate"):
             QePwInputFileAssembler().assemble(
@@ -101,10 +125,32 @@ class QePwInputFileAssemblerTest(unittest.TestCase):
             )
 
 
+def _skewed_simulation() -> PwDftSimulation:
+    return PwDftSimulation(
+        unit_cell=UnitCell(
+            direct_lattice=DirectLattice3D(
+                a1=np.array([1.0, 0.0, 0.0]),
+                a2=np.array([0.2, 2.0, 0.0]),
+                a3=np.array([0.3, 0.4, 3.0]),
+            ),
+            lattice_parameter=ScalarQuantity(2.0, PhysicalUnit("angstrom")),
+            atomic_basis=AtomicBasis(
+                atoms=(
+                    Atom(
+                        symbol="Si",
+                        position_fractional=VectorQuantity(np.zeros(3), Unitless()),
+                    ),
+                )
+            ),
+        ),
+        settings=PwDftSettings(calculation_type=CalculationType.scf),
+    )
+
+
 def _simulation() -> PwDftSimulation:
     return PwDftSimulation(
         unit_cell=UnitCell(
-            primitive_lattice=DirectLattice3D(
+            direct_lattice=DirectLattice3D(
                 a1=np.array([1.0, 0.0, 0.0]),
                 a2=np.array([0.0, 1.0, 0.0]),
                 a3=np.array([0.0, 0.0, 1.0]),

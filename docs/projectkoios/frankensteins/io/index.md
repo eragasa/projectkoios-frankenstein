@@ -4,4 +4,5 @@ Calculator input/output records and effect-free transformations. Calculator-spec
 implementations remain in their owning subpackages and are not re-exported here.
 
 - [`quantumespresso`](quantumespresso/index.md) owns `pw.x` text records.
-- [`vasp`](vasp/index.md) owns VASP text records, beginning with INCAR.
+
+VASP-native text records belong to `projectkoios.frankensteins.integrations.vasp`, alongside the projections and analyzers that consume them.

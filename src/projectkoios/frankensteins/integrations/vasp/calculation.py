@@ -5,7 +5,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from projectkoios.frankensteins.integrations.vasp.ibrion import VaspIbrion
-from projectkoios.frankensteins.io.vasp.incar import IncarAssignment, IncarFile
+from projectkoios.frankensteins.integrations.vasp.incar import (
+    IncarAssignment,
+    IncarFile,
+)
 from projectkoios.frankensteins.simulations.dft.base import PwDftSimulation
 from projectkoios.frankensteins.simulations.dft.settings import (
     AlignmentKind,

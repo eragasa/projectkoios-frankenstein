@@ -89,7 +89,7 @@ class VaspCalculationProjectorTest(unittest.TestCase):
 def _simulation(calculation_type: CalculationType) -> PwDftSimulation:
     return PwDftSimulation(
         unit_cell=UnitCell(
-            primitive_lattice=DirectLattice3D(
+            direct_lattice=DirectLattice3D(
                 a1=np.array([1.0, 0.0, 0.0]),
                 a2=np.array([0.0, 1.0, 0.0]),
                 a3=np.array([0.0, 0.0, 1.0]),

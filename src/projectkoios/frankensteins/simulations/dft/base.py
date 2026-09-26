@@ -20,7 +20,7 @@ class PwDftSimulation:
     settings: PwDftSettings
 
     def __post_init__(self) -> None:
-        if type(self.unit_cell) is not UnitCell:
+        if not isinstance(self.unit_cell, UnitCell):
             raise TypeError("unit_cell must be a UnitCell")
         if type(self.settings) is not PwDftSettings:
             raise TypeError("settings must be PwDftSettings")

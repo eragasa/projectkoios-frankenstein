@@ -1,4 +1,4 @@
-"""Quantum ESPRESSO input/output records and transformations.
+"""Quantum ESPRESSO input records and transformations.
 
 Implementations remain in their owning modules and are not re-exported here.
 """

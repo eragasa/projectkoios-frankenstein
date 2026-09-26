@@ -129,7 +129,7 @@ class QePwInputFile:
     def __post_init__(self) -> None:
         if type(self.control_block) is not ControlBlock:
             raise TypeError("control_block must be a ControlBlock")
-        if type(self.unit_cell) is not UnitCell:
+        if not isinstance(self.unit_cell, UnitCell):
             raise TypeError("unit_cell must be a UnitCell")
         if type(self.groups) is not tuple:
             raise TypeError("pw.x input groups must be a tuple")

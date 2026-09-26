@@ -2,7 +2,7 @@
 
 ## Maintained Project Koios examples
 
-- [`projectkoios/Si/scf`](projectkoios/Si/scf/README.md) projects one typed silicon SCF simulation into deterministic Quantum ESPRESSO and VASP inputs.
+- [`projectkoios/Si/single_scf`](projectkoios/Si/single_scf/README.md) separates silicon single-SCF, convergence, and qualified QE/VASP comparison examples.
 
 ## Vendored upstream evidence
 

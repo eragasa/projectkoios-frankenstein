@@ -1,6 +1,0 @@
-{
-  "alignment": "conditional",
-  "calculation_type": "scf",
-  "qualification": "This selects a static ionic calculation; electronic, k-point, and restart settings still determine the complete VASP calculation.",
-  "required_inputs": []
-}

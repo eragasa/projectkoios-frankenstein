@@ -21,7 +21,7 @@ from projectkoios.frankensteins.simulations.dft.settings import (
 class PwDftSimulationTest(unittest.TestCase):
     def test_retains_the_exact_unit_cell(self) -> None:
         unit_cell = UnitCell(
-            primitive_lattice=DirectLattice3D(
+            direct_lattice=DirectLattice3D(
                 a1=np.array([1.0, 0.0, 0.0]),
                 a2=np.array([0.0, 1.0, 0.0]),
                 a3=np.array([0.0, 0.0, 1.0]),

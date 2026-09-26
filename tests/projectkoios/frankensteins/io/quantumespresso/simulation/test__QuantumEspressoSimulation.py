@@ -77,7 +77,7 @@ class QuantumEspressoSimulationTest(unittest.TestCase):
 
 def _si_unit_cell() -> UnitCell:
     return UnitCell(
-        primitive_lattice=DirectLattice3D(
+        direct_lattice=DirectLattice3D(
             a1=np.array([1.0, 0.0, 0.0]),
             a2=np.array([0.0, 1.0, 0.0]),
             a3=np.array([0.0, 0.0, 1.0]),

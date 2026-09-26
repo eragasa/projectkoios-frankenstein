@@ -1,5 +1,12 @@
 # `UnitCell`
 
-Immutable composition with public `primitive_lattice`, `lattice_parameter`, and `atomic_basis` fields. `primitive_lattice` is the dimensionless matrix `A` represented by a PhysKit `DirectLattice3D`; `lattice_parameter` is a positive PhysKit `ScalarQuantity` with length dimensionality; `atomic_basis` is an exact `AtomicBasis`.
+Immutable base composition with public dimensionless and physical column-basis representations:
 
-The physical cell matrix is `H = lattice_parameter × A`. Atomic positions remain dimensionless fractional coordinates. This contract does not choose a conventional cell, normalize sites into `[0, 1)`, select pseudopotentials, or define calculator inputs.
+- `A = [a1 a2 a3]`, a unitless `MatrixQuantity`;
+- `H = lattice_parameter A = [h1 h2 h3]`, a length-bearing `MatrixQuantity`;
+- `a1`, `a2`, and `a3`, the columns of `A`;
+- `h1`, `h2`, and `h3`, the columns of `H`.
+
+`direct_lattice` is a frozen canonical PhysKit `DirectLattice3D`; `lattice_parameter` is the positive physical scale; `atomic_basis` is an exact `AtomicBasis`. The constructor snapshots the supplied lattice.
+
+For a fractional column vector `s`, Cartesian position is `r = H s`. Calculator projections serialize columns of `H` as native lattice vectors.

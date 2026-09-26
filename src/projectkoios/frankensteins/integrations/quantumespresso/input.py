@@ -99,18 +99,14 @@ def _structure_groups(
     if type(coordinate_precision) is not int or coordinate_precision < 1:
         raise ValueError("coordinate_precision must be a positive integer")
     unit_cell = simulation.unit_cell
-    factor = 1.0
+    lattice_matrix = unit_cell.A.magnitude
     if cell_parameters_unit != "alat":
-        lattice_parameter = MODEL_SYSTEM_UNIT_CONVERTER.convert_scalar(
-            unit_cell.lattice_parameter,
+        conversion_factor = MODEL_SYSTEM_UNIT_CONVERTER.conversion_factor(
+            unit_cell.H.unit,
             PhysicalUnit(cell_parameters_unit),
         )
-        factor = lattice_parameter.magnitude
-    lattice_vectors = (
-        unit_cell.primitive_lattice.a1 * factor,
-        unit_cell.primitive_lattice.a2 * factor,
-        unit_cell.primitive_lattice.a3 * factor,
-    )
+        lattice_matrix = unit_cell.H.magnitude * conversion_factor
+    lattice_vectors = tuple(lattice_matrix[:, index] for index in range(3))
     return (
         PwInputGroup(
             kind="card",
